@@ -1,0 +1,56 @@
+
+
+
+<!-- TODO in Lab 5: Display the items on the menu with cost for each -->
+
+
+<!-- Displaying number of guests both in input box and here is redundant. It is here only for the example
+purpose so you can see how some information from the model can be retrieved. In Lab 5 you will replace 
+this with Total price of the menu -->
+
+
+<!-- Total number of guests: {{getNumberOfGuests()}} -->
+
+
+
+<div class="col-sm-3 col-md-3 col-lg-2 col-xl-2 sidenav fill-height">
+	<h3>My Dinner</h3>
+	<label>People</label> <input type="number" ng-model="numberOfGuests" ng-change="setNumberOfGuests(numberOfGuests)" id="numberOfGuests" />
+	<div class="panel panel-success">
+		<div class="panel-heading">
+			<div class="row">
+				<div class="col-sm-8">Dish Name</div>
+				<div class="col-sm-4 text-right">Cost</div>
+			</div>
+		</div>
+		<div class="panel-body" id="menuPanelBody">
+			<div ng-repeat="dish in menu">
+				<div class="row">
+					<div class="col-sm-1">
+						<a class="btn btn-danger btn-xs deleteButton" href="" role="button" ng-click="removeDish(dish.id)">X</a>
+					</div>
+					<div class="col-sm-5">
+						{{dish.title}}
+					</div>
+					<div class="col-sm-4">
+						{{getDishPrice(dish)}} SEK
+					</div>
+				</div>
+
+			</div>
+			<div class="row">
+					
+					<div class="col-sm-7 topline">
+						Pending
+					</div>
+					<div class="col-sm-4 topline">
+						{{getPendingPrice()}} SEK
+					</div>
+				</div>
+		</div>
+		<div class="panel-footer text-right" id="menuPanelFooter">
+			<strong>{{calcMenuPrice()}} SEK</strong>
+		</div>
+	</div>
+	<p class="text-center"><a class="btn btn-success btn-md" href="#!/confirm" role="button" id="confirmDinner">Confirm Dinner</a></p>
+</div>
