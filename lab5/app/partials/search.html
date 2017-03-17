@@ -8,7 +8,7 @@
 			<div class="col-sm-9 col-md-9 col-lg-10 col-xl-10 text-left fill-height">
 				<div class="jumbotron greenColor">
 					<h4 class="underline">Select Dish</h4>
-					<select ng-model="type" name="dishType" ng-change="search(query, type)">
+					<select ng-model="type" ng-init="type = 'appetizer'" name="dishType" ng-change="search(query, type)">
 						<option value="appetizer">Starter</option>
 						<option value="main course">Main Dish</option>
 						<option value="dessert">Dessert</option>
@@ -32,20 +32,5 @@
 				</div>
 			</div>
 		</div>
-		
-
-		<!-- 
-		<ul>
-			<li ng-repeat="dish in dishes">
-				<img ng-src="https://spoonacular.com/recipeImages/{{dish.image}}"/>
-				{{dish.title}}
-				<a ng-href="#!/dish/{{dish.id}}">View more</a>
-				Dish ready in {{dish.readyInMinutes}} minutes
-			</li>
-		</ul>
-	-->
-
-
-
 </div>
 

@@ -12,7 +12,7 @@ dinnerPlannerApp.factory('Dinner',function ($resource, $cookieStore) {
     var pendingPrice = 0;
 
     this.getPendingPrice = function(){
-        return pendingPrice*numberOfGuests;
+        return pendingPrice;
     }
 
     this.setPendingPrice = function(num) {
@@ -87,11 +87,11 @@ dinnerPlannerApp.factory('Dinner',function ($resource, $cookieStore) {
                 if (dish.dishTypes[i] == "main dish" || dish.dishTypes[i] == "starter" || dish.dishTypes[i] == "dessert")
                     type = dish.dishTypes[i];
                 if (this.getSelectedDish(dish.dishTypes[i]) != null){
-                    this.removeDishFromMenu(this.getSelectedDish(dish.dishTypes[i]).id,false);
-                    break;                   
+                    this.removeDishFromMenu(this.getSelectedDish(dish.dishTypes[i]).id,false);                   
                 }
             }
             selectedDishes.push(dish);
+            console.log(type)          
             $cookieStore.put(type,dish.id);
         });     
     }
@@ -102,7 +102,6 @@ dinnerPlannerApp.factory('Dinner',function ($resource, $cookieStore) {
             var type;
             for (var i = 0; i < selectedDishes.length; i++) {
                 if (selectedDishes[i].id == dishId){
-                    console.log(removeFlag)
                     for (var j = 0; j < dish.dishTypes.length; j++) {
                         if (removeFlag && (dish.dishTypes[j] == "main dish" || dish.dishTypes[j] == "starter" || dish.dishTypes[j] == "dessert")){
                             type = dish.dishTypes[j];
@@ -117,7 +116,7 @@ dinnerPlannerApp.factory('Dinner',function ($resource, $cookieStore) {
         });
     }
 
-    this.DishSearch = $resource('https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search',{},{
+    this.DishSearch = $resource('https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search/?number=100',{},{
         get: {
             headers: {
                 'X-Mashape-Key': 'Qu9grxVNWpmshA4Kl9pTwyiJxVGUp1lKzrZjsnghQMkFkfA4LB'
