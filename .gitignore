@@ -55,3 +55,6 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
+
+#Ignore this folder
+lab5/node_modules/
