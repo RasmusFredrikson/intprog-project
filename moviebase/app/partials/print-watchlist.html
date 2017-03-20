@@ -1,0 +1,27 @@
+<!-- We include the sidebar as it is shared across two screens. -->
+<ng-include src="'partials/sidebar.html'" ng-controller="SidebarCtrl"></ng-include>
+<div class="container-fluid">    
+	<div class="row content">
+		<div class="col-sm-9 col-md-9 col-lg-10 col-xl-10 text-left fill-height">
+
+			<!-- Movies -->
+			This page should display information about all the movies in the watchlist.
+
+			<div ng-repeat="dish in dishes">
+				<div class="row text-center bottom-align">
+					<div class="col-sm-4">
+						<a href="#!/dish/{{dish.id}}" class="thumbnail">
+							<strong class="blackColor">{{dish.title}}</strong>
+							<img class="img100" src={{dish.image}} alt={{dish.title}}>
+							<p class="blackColor">Wow, such a cool and amazing dish, I wish I could eat this dish</p>
+						</a>
+					</div>
+
+					<div class="col-sm-8">
+						<p">{{dish.instructions}}</p>
+					</div>	
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
