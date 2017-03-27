@@ -5,10 +5,10 @@
 // the next time.
 moviePlannerApp.factory('Movie',function ($resource) {
 
-    this.MovieSearch = $resource('https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search',{},{
+    this.MovieSearch = $resource('http://pokeapi.co/api/v1/pokemon/2/',{},{
         get: {
-            headers: {
-                'X-Mashape-Key': 'Qu9grxVNWpmshA4Kl9pTwyiJxVGUp1lKzrZjsnghQMkFkfA4LB'
+            headers: 
+{                'Accept': 'application/json'
             }
         }
     });
@@ -19,6 +19,10 @@ moviePlannerApp.factory('Movie',function ($resource) {
             }
         }
     });
+
+
+
+    
 
 
     // TODO in Lab 5: Add your model code from previous labs

@@ -6,9 +6,10 @@ moviePlannerApp.controller('SearchCtrl', function ($scope,Movie) {
 
 	$scope.search = function(query,type) {
 		$scope.status = "Searching...";
-		Movie.MovieSearch.get({query:query,type:type},function(data){
-			$scope.movies=data.results;
-			$scope.status = "Showing " + data.results.length + " results";
+		Movie.MovieSearch.get({},function(data){
+			console.log(data);
+			//$scope.movies=data.results;
+			//$scope.status = "Showing " + data.results.length + " results";
 		},function(data){
 			$scope.status = "There was an error";
 		});
