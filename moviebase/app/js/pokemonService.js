@@ -3,16 +3,16 @@
 // dependency on any service you need. Angular will insure that the
 // service is created first time it is needed and then just reuse it
 // the next time.
-moviePlannerApp.factory('Movie',function ($resource) {
+pokemonPlannerApp.factory('Pokemon',function ($resource) {
 
-    this.MovieSearch = $resource('http://pokeapi.co/api/v1/pokemon/2/',{},{
+    this.PokemonSearch = $resource('http://pokeapi.co/api/v1/pokemon/2/',{},{
         get: {
             headers: 
 {                'Accept': 'application/json'
             }
         }
     });
-    this.Movie = $resource('https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/:id/information',{},{
+    this.Pokemon = $resource('https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/:id/information',{},{
         get: {
             headers: {
                 'X-Mashape-Key': 'Qu9grxVNWpmshA4Kl9pTwyiJxVGUp1lKzrZjsnghQMkFkfA4LB'

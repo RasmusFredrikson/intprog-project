@@ -8,7 +8,7 @@
 // also see that we included separate JavaScript files for these modules. Angular
 // has other core modules that you might want to use and explore when you go deeper
 // into developing Angular applications. For this lab, these two will suffice.
-var moviePlannerApp = angular.module('moviePlanner', ['ngRoute','ngResource']);
+var pokemonPlannerApp = angular.module('pokemonPlanner', ['ngRoute','ngResource']);
 
 
 // Here we configure our application module and more specifically our $routeProvider. 
@@ -34,7 +34,7 @@ var moviePlannerApp = angular.module('moviePlanner', ['ngRoute','ngResource']);
 // the path we use the ":" sign. For instance, our '/dish/:dishId' will be triggered when we access 
 // 'http://localhost:8000/#/dish/12345'. The 12345 value will be stored in a dishId parameter, which we can
 // then access through $routeParams service. More information on this in the dishCtrl.js 
-moviePlannerApp.config(['$routeProvider',
+pokemonPlannerApp.config(['$routeProvider',
     function($routeProvider) {
         $routeProvider.
         when('/home', {
@@ -48,9 +48,9 @@ moviePlannerApp.config(['$routeProvider',
             templateUrl: 'partials/info.html',
             controller: 'InfoCtrl'
         }).
-        when('/printWatchlist', {
-            templateUrl: 'partials/print-watchlist.html',
-            controller: 'PrintWatchlistCtrl'
+        when('/printPokemonlist', {
+            templateUrl: 'partials/print-pokemonlist.html',
+            controller: 'PrintPokemonlistCtrl'
         }).
         // TODO in Lab 5: add more conditions for the last two screens (overview and preparation)
         otherwise({

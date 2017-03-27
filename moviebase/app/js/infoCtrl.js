@@ -1,6 +1,6 @@
 // Dinner controller that we use whenever we want to display detailed
 // information for one dish
-moviePlannerApp.controller('InfoCtrl', function ($scope,$routeParams,Movie) {
+pokemonPlannerApp.controller('InfoCtrl', function ($scope,$routeParams,Pokemon) {
   
   // TODO in Lab 5: you need to get the dish according to the routing parameter
   // $routingParams.paramName
