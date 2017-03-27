@@ -8,6 +8,11 @@ pokemonPlannerApp.controller('SearchCtrl', function ($scope,Pokemon) {
 		$scope.status = "Searching...";
 		Pokemon.PokemonSearch.get({},function(data){
 			console.log(data);
+			$scope.pokemon = data.pokemon;
+			for (var i = 0; i < $scope.pokemon.length; i++) {
+				console.log($scope.pokemon[i].name);
+			}
+			console.log($scope.pokemon.length);
 			//$scope.movies=data.results;
 			//$scope.status = "Showing " + data.results.length + " results";
 		},function(data){

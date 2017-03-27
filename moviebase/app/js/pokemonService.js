@@ -5,7 +5,7 @@
 // the next time.
 pokemonPlannerApp.factory('Pokemon',function ($resource) {
 
-    this.PokemonSearch = $resource('http://pokeapi.co/api/v1/pokemon/2/',{},{
+    this.PokemonSearch = $resource('http://pokeapi.co/api/v1/pokedex/1/',{},{
         get: {
             headers: 
 {                'Accept': 'application/json'

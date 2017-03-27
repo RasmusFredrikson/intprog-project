@@ -7,12 +7,13 @@
 	<a class="btn btn-primary btn-sm" ng-click="search(query, type)" href="" role="button" id="searchButton">Search</a>
 	{{status}}
 
-	<h3>Watchlist</h3>
+	<h3>My Pokémon</h3>
 	<div class="panel panel-primary">
 		<div class="panel-heading">
 			<div class="row">
-				<div class="col-sm-8">Title</div>
-				<div class="col-sm-4 text-right">Genre</div>
+				<div class="col-sm-4">Name</div>
+				<div class="col-sm-4 text-right">Level</div>
+				<div class="col-sm-4">Type</div>
 			</div>
 		</div>
 		<div class="panel-body" id="menuPanelBody">
@@ -44,5 +45,5 @@
 			<strong>{{calcMenuPrice()}}</strong>
 		</div>
 	</div>
-	<p class="text-center"><a class="btn btn-primary btn-md" href="#!/printWatchlist" role="button" id="confirmDinner">Confirm Watchlist</a></p>
+	<p class="text-center"><a class="btn btn-primary btn-md" href="#!/printWatchlist" role="button" id="confirmDinner">See All</a></p>
 </div>
