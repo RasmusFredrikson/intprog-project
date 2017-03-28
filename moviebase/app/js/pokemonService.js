@@ -5,13 +5,36 @@
 // the next time.
 pokemonPlannerApp.factory('Pokemon',function ($resource) {
 
-    this.PokemonSearch = $resource('http://pokeapi.co/api/v1/pokedex/1/',{},{
+    // Set the configuration for your app
+    // TODO: Replace with your project's config object
+    var config = {
+        apiKey: "AIzaSyCopvBmpePv8mlx529uPfA2YZ9DJWve5qA",
+        authDomain: "pokedex-baee2.firebaseapp.com",
+        databaseURL: "https://pokedex-baee2.firebaseio.com/",
+        storageBucket: "pokedex-baee2.appspot.com"
+    };
+    firebase.initializeApp(config);
+
+    // Get a reference to the database service
+    var database = firebase.database();
+
+    this.addPokemon = function(pokemon){
+        var ref = database.ref("pokemon")
+        ref.child(pokemon.national_id).set({
+            id: pokemon.national_id,
+            name: pokemon.name
+        })
+    }
+
+    this.PokemonSearch = $resource('http://pokeapi.co/api/v1/pokemon/:id/',{},{
         get: {
             headers: 
-{                'Accept': 'application/json'
+            {
+                'Accept': 'application/json'
             }
         }
     });
+
     this.Pokemon = $resource('https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/:id/information',{},{
         get: {
             headers: {
@@ -22,23 +45,23 @@ pokemonPlannerApp.factory('Pokemon',function ($resource) {
 
 
 
-    
-
-
-    // TODO in Lab 5: Add your model code from previous labs
-    // feel free to remove above example code
-    // you will need to modify the model (getDish and getAllDishes) 
-    // a bit to take the advantage of Angular resource service
-    // check lab 5 instructions for details
 
 
 
+// TODO in Lab 5: Add your model code from previous labs
+// feel free to remove above example code
+// you will need to modify the model (getDish and getAllDishes) 
+// a bit to take the advantage of Angular resource service
+// check lab 5 instructions for details
 
 
-    // Angular service needs to return an object that has all the
-    // methods created in it. You can consider that this is instead
-    // of calling var model = new DinnerModel() we did in the previous labs
-    // This is because Angular takes care of creating it when needed.
-    return this;
+
+
+
+// Angular service needs to return an object that has all the
+// methods created in it. You can consider that this is instead
+// of calling var model = new DinnerModel() we did in the previous labs
+// This is because Angular takes care of creating it when needed.
+return this;
 
 });

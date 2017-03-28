@@ -6,18 +6,20 @@ pokemonPlannerApp.controller('SearchCtrl', function ($scope,Pokemon) {
 
 	$scope.search = function(query,type) {
 		$scope.status = "Searching...";
-		Pokemon.PokemonSearch.get({},function(data){
-			console.log(data);
-			$scope.pokemon = data.pokemon;
-			for (var i = 0; i < $scope.pokemon.length; i++) {
-				console.log($scope.pokemon[i].name);
-			}
-			console.log($scope.pokemon.length);
-			//$scope.movies=data.results;
-			//$scope.status = "Showing " + data.results.length + " results";
-		},function(data){
-			$scope.status = "There was an error";
-		});
+		for (var i = 1; i <= 151 ; i++) {
+			Pokemon.PokemonSearch.get({id:i},function(data){
+				Pokemon.addPokemon(data)
+				//$scope.pokemon = data.pokemon;
+				/*for (var i = 0; i < $scope.pokemon.length; i++) {
+					console.log($scope.pokemon[i].name);
+				}*/
+				//console.log($scope.pokemon.length);
+				//$scope.movies=data.results;
+				//$scope.status = "Showing " + data.results.length + " results";
+			},function(data){
+				$scope.status = "There was an error";
+			});
+		}
 	}
 	
 });
