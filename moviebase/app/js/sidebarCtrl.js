@@ -14,4 +14,12 @@ pokemonPlannerApp.controller('SidebarCtrl', function ($scope,Pokemon) {
 		});
 	}
 
+	$scope.getAllPokemon = function() {
+		Pokemon.getAllPokemon();
+	}
+
+	$scope.getPokemon = function(id) {
+		Pokemon.getPokemon(id);
+	}
+
 });

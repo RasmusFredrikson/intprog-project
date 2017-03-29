@@ -26,6 +26,22 @@ pokemonPlannerApp.factory('Pokemon',function ($resource) {
         })
     }
 
+    // Get all pokémon in the database
+    this.getAllPokemon = function() {
+        var ref = database.ref("pokemon");
+        ref.once('value').then(function(snapshot) {
+            console.log(snapshot.val());
+        });
+    }
+
+    // Get a pokémon with a specified id
+    this.getPokemon = function(id) {
+        var ref = database.ref("pokemon/" + id);
+        ref.once('value').then(function(snapshot) {
+            console.log(snapshot.val());
+        });
+    }
+
     this.PokemonSearch = $resource('http://pokeapi.co/api/v1/pokemon/:id/',{},{
         get: {
             headers: 
