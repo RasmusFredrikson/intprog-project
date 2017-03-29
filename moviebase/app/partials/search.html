@@ -15,20 +15,29 @@
 					</select>
 					<input ng-model="query" placeholder="Enter key words"/>
 
-					<a class="btn btn-success btn-sm" ng-click="getAllPokemon()" href="" role="button" id="searchButton">getAllPokémon</a>
+					<a class="btn btn-success btn-sm" ng-click="search()" href="" role="button" id="searchButton">getAllPokémon</a>
 					{{status}}
 				</div>
 
 				<!-- Search Results -->
 				<div class="row text-center">
-					<div ng-repeat="poke in pokemon">
+					<div ng-repeat="poke in [1,2,3,4,5]">
 						<div class="col-sm-4 col-md-2 col-lg-2 col-xl-1">
-						<img ng-src="../images/1.png"/>
+							<a href="">
+							<div class="col-sm-4 col-md-2 col-lg-2 col-xl-1">
+									<img src="../images/{{pokemonData.national_id}}.png">
+									{{pokemonData.name}}
+									<div ng-repeat="type in pokemonData.types">
+										Type: {{type.name}}
+									</div>
+
+								</div>
+							</a>
 						</div>
 					</div>
 				</div>
 
-				<img src="../images/1.png">
+
 			</div>
 		</div>
 	</div>

@@ -1,7 +1,62 @@
 <!-- We include the sidebar as it is shared across two screens. -->
 <ng-include src="'partials/sidebar.html'" ng-controller="SidebarCtrl"></ng-include>
+<div class="container-fluid">    
+	<div class="row">
+		<div class="col-sm-9 col-md-9 col-lg-10 col-xl-10 fill-height">	
+			<p><a class="btn btn-primary btn-sm" href="#!/search" role="button">Back</a></p>
+			<h3>{{pokemon.name}} #{{pokemon.national_id}}</h3>				
+			<div class="row">
+				<!-- Image -->
+				<div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
+					<div>
+						<img src="../images/{{pokemon.national_id}}.png">
+					</div>
+				</div>
 
-<!-- TODO in Lab 5: Display the dish information including image, Description, 
-Instructions, Ingredients and total cost. -->
 
-This page should include more specific information about a pokémon.
+				<!-- Information -->			
+				<div class="jumbotron col-sm-8 col-md-8 col-lg-8 col-xl-6">
+					<div class="row">
+						<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
+							<h4>Height</h4>
+							{{pokemon.height}} cm
+						</div>
+						<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
+							<h4>Category</h4>
+							{{pokemon.species}}
+						</div>
+					</div>
+					<div class="row">
+					<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
+							<h4>Weight</h4>
+							{{pokemon.weight}} g
+						</div>
+						<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
+							<h4>Abilities</h4>
+							<div ng-repeat="ability in pokemon.abilities">
+								{{ability.name}}
+							</div>
+						</div>
+						
+					</div>
+				</div>
+				<div class="jumbotron col-sm-6 col-md-6 col-lg-6 col-xl-6">
+					<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
+							<h4>Types</h4>
+							<div ng-repeat="type in pokemon.types">
+								{{type.name}}
+							</div>				
+						</div>
+				</div>
+
+				<div class=" jumbotron col-sm-6 col-md-6 col-lg-6 col-xl-6">
+					<h4>Moves</h4>
+					<div ng-repeat="move in pokemon.moves">
+						{{move.name}}
+					</div>				
+				</div>
+				
+			</div>
+		</div>
+	</div>
+</div>

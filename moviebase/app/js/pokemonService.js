@@ -22,7 +22,9 @@ pokemonPlannerApp.factory('Pokemon',function ($resource) {
         var ref = database.ref("pokemon")
         ref.child(pokemon.national_id).set({
             id: pokemon.national_id,
-            name: pokemon.name
+            name: pokemon.name,
+            height: pokemon.height,
+            weight: pokemon.weight
         })
     }
 
@@ -42,6 +44,7 @@ pokemonPlannerApp.factory('Pokemon',function ($resource) {
         var ref = database.ref("pokemon/" + id);
         ref.once('value').then(function(snapshot) {
             console.log(snapshot.val());
+            return snapshot.val();
         });
     }
 
