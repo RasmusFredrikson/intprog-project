@@ -28,16 +28,26 @@ pokemonPlannerApp.factory('Pokemon',function ($resource) {
 
     // Get all pokémon in the database
     this.getAllPokemon = function() {
+        var list = [];
         var ref = database.ref("pokemon");
         ref.once('value').then(function(snapshot) {
-            console.log(snapshot.val());
+            //console.log(snapshot.val());
+            list.push(snapshot.val());
         });
+        return list;
     }
 
     // Get a pokémon with a specified id
     this.getPokemon = function(id) {
         var ref = database.ref("pokemon/" + id);
         ref.once('value').then(function(snapshot) {
+            console.log(snapshot.val());
+        });
+    }
+
+    this.search = function() {
+        var ref = database.ref("pokemon");
+        ref.orderByValue().on("value", function(snapshot) {
             console.log(snapshot.val());
         });
     }

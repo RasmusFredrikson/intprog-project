@@ -15,21 +15,20 @@
 					</select>
 					<input ng-model="query" placeholder="Enter key words"/>
 
-					<a class="btn btn-success btn-sm" ng-click="search(query, type)" href="" role="button" id="searchButton">Search</a>
+					<a class="btn btn-success btn-sm" ng-click="getAllPokemon()" href="" role="button" id="searchButton">getAllPokémon</a>
 					{{status}}
 				</div>
 
 				<!-- Search Results -->
 				<div class="row text-center">
-					<div ng-repeat="dish in dishes">
+					<div ng-repeat="poke in pokemon">
 						<div class="col-sm-4 col-md-2 col-lg-2 col-xl-1">
-							<a ng-href="#!/dish/{{dish.id}}">
-								<img ng-src="https://spoonacular.com/recipeImages/{{dish.image}}" class="img100"/>
-								
-							</a>	
+						<img ng-src="../images/1.png"/>
 						</div>
 					</div>
 				</div>
+
+				<img src="../images/1.png">
 			</div>
 		</div>
 	</div>
