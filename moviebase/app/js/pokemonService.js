@@ -28,8 +28,29 @@ pokemonPlannerApp.factory('Pokemon',function ($resource) {
         })
     }
 
+    this.addUserPokemon = function(pokemon){
+        var ref = database.ref("user/pokemon")
+        ref.child(pokemon.national_id).set({
+            id: pokemon.national_id,
+            name: pokemon.name,
+            height: pokemon.height,
+            weight: pokemon.weight
+        })
+    }
+
     // Get all pokémon in the database
     this.getAllPokemon = function() {
+        var list = [];
+        var ref = database.ref("pokemon");
+        ref.once('value').then(function(snapshot) {
+            //console.log(snapshot.val());
+            list.push(snapshot.val());
+        });
+        return list;
+    }
+
+    // Get all pokémon in the database
+    this.getAllUserPokemon = function(cb) {
         var list = [];
         var ref = database.ref("pokemon");
         ref.once('value').then(function(snapshot) {

@@ -23,5 +23,15 @@ pokemonPlannerApp.controller('SidebarCtrl', function ($scope,Pokemon) {
 		Pokemon.getPokemon(id);
 	}
 
+	$scope.myPokemon = [
+	{
+		"name": "Bulbasaur",
+		"type": "grass"
+	},
+	{
+		"name": "Pikachu",
+		"type": "electric"
+	}];
+
 
 });

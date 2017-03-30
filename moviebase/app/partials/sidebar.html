@@ -11,38 +11,27 @@
 	<div class="panel panel-danger">
 		<div class="panel-heading">
 			<div class="row">
-				<div class="col-sm-4">Name</div>
-				<div class="col-sm-4 text-right">Level</div>
-				<div class="col-sm-4">Type</div>
+				<div class="col-sm-6">Name</div>
+				<div class="col-sm-6">Type</div>
 			</div>
 		</div>
 		<div class="panel-body" id="menuPanelBody">
-			<div ng-repeat="dish in menu">
+			<div ng-repeat="pokemon in myPokemon">
 				<div class="row">
 					<div class="col-sm-1">
-						<a class="btn btn-danger btn-xs deleteButton" href="" role="button" ng-click="removeDish(dish.id)">X</a>
+						<a class="btn btn-danger btn-xs deleteButton" href="" role="button" ng-click="">X</a>
 					</div>
 					<div class="col-sm-5">
-						{{dish.title}}
+						{{pokemon.name}}
 					</div>
-					<div class="col-sm-4">
-						{{getDishPrice(dish)}}
+					<div class="col-sm-5">
+						{{pokemon.type}}
 					</div>
 				</div>
 
-			</div>
-			<div class="row">
-
-				<div class="col-sm-7 topline">
-					
-				</div>
-				<div class="col-sm-4 topline">
-					{{getPendingPrice()}}
-				</div>
 			</div>
 		</div>
 		<div class="panel-footer text-right" id="menuPanelFooter">
-			<strong>{{calcMenuPrice()}}</strong>
 		</div>
 	</div>
 	<p class="text-center"><a class="btn btn-danger btn-md" href="#!/printWatchlist" role="button" id="confirmDinner">See All</a></p>
