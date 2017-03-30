@@ -29,13 +29,16 @@ pokemonPlannerApp.controller('SearchCtrl', function ($scope,Pokemon) {
 	
 	// Not working because of asynchronous call or something...
 	$scope.getAllPokemon = function() {
-		$scope.pokemon = Pokemon.getAllPokemon().then(function() {
+		Pokemon.getAllPokemon(function(data) {
+			//console.log(data[0]);
+			$scope.pokemon = data[0];
 			console.log($scope.pokemon.length);
+			console.log($scope.pokemon);
+			//console.log($scope.pokemon.length);
+			//console.log(typeof $scope.pokemon);
 		});
-		console.log($scope.pokemon.length);
-		console.log($scope.pokemon);
-		console.log($scope.pokemon.length);
-		console.log(typeof $scope.pokemon);
+		
+
 	}
 
 	$scope.getPokemon = function(id) {

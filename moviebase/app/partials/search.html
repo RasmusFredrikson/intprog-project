@@ -21,18 +21,13 @@
 
 				<!-- Search Results -->
 				<div class="row text-center">
-					<div ng-repeat="poke in [1,2,3,4,5]">
+					<div ng-repeat="poke in pokemon">
 						<div class="col-sm-4 col-md-2 col-lg-2 col-xl-1">
-							<a href="">
-							<div class="col-sm-4 col-md-2 col-lg-2 col-xl-1">
-									<img src="../images/{{pokemonData.national_id}}.png">
-									{{pokemonData.name}}
-									<div ng-repeat="type in pokemonData.types">
-										Type: {{type.name}}
-									</div>
-
-								</div>
+							<a href="#!/info/{{poke.id}}">
+								<img src="../images/{{poke.id}}.png" class="img100">
+								{{poke.name}}
 							</a>
+
 						</div>
 					</div>
 				</div>

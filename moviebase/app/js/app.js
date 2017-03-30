@@ -44,7 +44,7 @@ pokemonPlannerApp.config(['$routeProvider',
             templateUrl: 'partials/search.html',
             controller: 'SearchCtrl'
         }).
-        when('/info', { //CHANGE THIS TO INFO!!!!
+        when('/info/:pokeId', { //CHANGE THIS TO INFO!!!!
             templateUrl: 'partials/info.html',
             controller: 'InfoCtrl'
         }).

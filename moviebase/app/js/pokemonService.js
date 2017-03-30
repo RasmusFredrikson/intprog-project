@@ -39,14 +39,15 @@ pokemonPlannerApp.factory('Pokemon',function ($resource) {
     }
 
     // Get all pokémon in the database
-    this.getAllPokemon = function() {
+    this.getAllPokemon = function(cb) {
         var list = [];
         var ref = database.ref("pokemon");
         ref.once('value').then(function(snapshot) {
             //console.log(snapshot.val());
             list.push(snapshot.val());
+        }).then(function() {
+            cb(list);
         });
-        return list;
     }
 
     // Get all pokémon in the database
