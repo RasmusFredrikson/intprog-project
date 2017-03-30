@@ -7,13 +7,13 @@ pokemonPlannerApp.controller('InfoCtrl', function ($scope,$routeParams,Pokemon) 
   // Check the app.js to figure out what is the paramName in this case
   console.log("Running InfoCtrl!");
 
-  Pokemon.PokemonSearch.get({id:150},function(data){
+  Pokemon.PokemonSearch.get({id:1},function(data){
   	console.log(data);
   	$scope.pokemon = data;
   	console.log($scope.pokemon);
-  	console.log($scope.pokemon.descriptions[0].resource_uri);
-  	Pokemon.getDescription.get({link:$scope.pokemon.descriptions[0].resource_uri},function(description){
-  		console.log(description);
+  	console.log($scope.pokemon.descriptions[0].resource_uri.substr(1));
+  	Pokemon.getDescription.get({link:$scope.pokemon.descriptions[0].resource_uri.substr(1)},function(desc){
+  		$scope.description = desc.description;
   	});
 				//Pokemon.addPokemon(data)
 				//$scope.pokemon = data.pokemon;

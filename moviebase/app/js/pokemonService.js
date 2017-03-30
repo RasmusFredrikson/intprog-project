@@ -64,7 +64,7 @@ pokemonPlannerApp.factory('Pokemon',function ($resource) {
         }
     });
 
-    this.getDescription = $resource('http://pokeapi.co:link',{},{
+    this.getDescription = $resource('http://pokeapi.co/:link',{},{
         get: {
             headers: 
             {
