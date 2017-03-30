@@ -4,11 +4,11 @@
 
 	<input ng-model="query" placeholder="Enter key words" size="10" />
 
-	<a class="btn btn-primary btn-sm" ng-click="search(query, type)" href="" role="button" id="searchButton">Search</a>
+	<a class="btn btn-danger btn-sm" ng-click="search(query, type)" href="" role="button" id="searchButton">Search</a>
 	{{status}}
 
 	<h3>My Pokémon</h3>
-	<div class="panel panel-primary">
+	<div class="panel panel-danger">
 		<div class="panel-heading">
 			<div class="row">
 				<div class="col-sm-4">Name</div>
@@ -45,9 +45,9 @@
 			<strong>{{calcMenuPrice()}}</strong>
 		</div>
 	</div>
-	<p class="text-center"><a class="btn btn-primary btn-md" href="#!/printWatchlist" role="button" id="confirmDinner">See All</a></p>
+	<p class="text-center"><a class="btn btn-danger btn-md" href="#!/printWatchlist" role="button" id="confirmDinner">See All</a></p>
 
-	<p class="text-center"><a class="btn btn-primary btn-md" ng-click="getPokemon(23)" href="" role="button"">Run getAllPokemon</a></p>
+	<p class="text-center"><a class="btn btn-danger btn-md" ng-click="getPokemon(23)" href="" role="button"">Run getAllPokemon</a></p>
 
 	
 </div>

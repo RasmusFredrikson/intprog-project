@@ -64,10 +64,11 @@ pokemonPlannerApp.factory('Pokemon',function ($resource) {
         }
     });
 
-    this.Pokemon = $resource('https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/:id/information',{},{
+    this.getDescription = $resource('http://pokeapi.co:link',{},{
         get: {
-            headers: {
-                'X-Mashape-Key': 'Qu9grxVNWpmshA4Kl9pTwyiJxVGUp1lKzrZjsnghQMkFkfA4LB'
+            headers: 
+            {
+                'Accept': 'application/json'
             }
         }
     });
