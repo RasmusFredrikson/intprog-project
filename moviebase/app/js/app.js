@@ -8,7 +8,7 @@
 // also see that we included separate JavaScript files for these modules. Angular
 // has other core modules that you might want to use and explore when you go deeper
 // into developing Angular applications. For this lab, these two will suffice.
-var pokemonPlannerApp = angular.module('pokemonPlanner', ['ngRoute','ngResource']);
+var pokemonPlannerApp = angular.module('pokemonPlanner', ['ngRoute','ngResource','firebase']);
 
 
 // Here we configure our application module and more specifically our $routeProvider. 
@@ -38,7 +38,8 @@ pokemonPlannerApp.config(['$routeProvider',
     function($routeProvider) {
         $routeProvider.
         when('/home', {
-            templateUrl: 'partials/home.html'
+            templateUrl: 'partials/home.html',
+            controller: 'HomeCtrl'
         }).
         when('/search', {
             templateUrl: 'partials/search.html',
@@ -52,8 +53,12 @@ pokemonPlannerApp.config(['$routeProvider',
             templateUrl: 'partials/print-pokemonlist.html',
             controller: 'PrintPokemonlistCtrl'
         }).
+        when('/battle', {
+            templateUrl: 'partials/battle.html',
+            controller: 'BattleCtrl'
+        }).
         // TODO in Lab 5: add more conditions for the last two screens (overview and preparation)
         otherwise({
-            redirectTo: '/search'
+            redirectTo: '/home'
         });
     }]);

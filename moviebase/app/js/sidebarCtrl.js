@@ -1,6 +1,6 @@
 // Movie controller that we use whenever we have view that needs to 
 // display or modify the Movie menu
-pokemonPlannerApp.controller('SidebarCtrl', function ($scope,Pokemon) {
+pokemonPlannerApp.controller('SidebarCtrl', function ($scope,Pokemon, $firebaseObject) {
 
 	// TODO in Lab 5: Implement the methods to get the Movie menu
 	// add dish to menu and get total menu price

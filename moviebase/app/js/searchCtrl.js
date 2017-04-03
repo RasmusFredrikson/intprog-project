@@ -1,18 +1,26 @@
 // Search controller that we use whenever we have a search inputs
 // and search results
-pokemonPlannerApp.controller('SearchCtrl', function ($scope,Pokemon) {
+pokemonPlannerApp.controller('SearchCtrl', function ($scope,Pokemon, $firebaseArray) {
 	// TODO in Lab 5: you will need to implement a method that searchers for dishes
 	// including the case while the search is still running.
 
-	$scope.search = function() {
-		$scope.status = "Searching...";
-		for (var i = 1; i <= 1 ; i++) {
-			Pokemon.PokemonSearch.get({id:i},function(data){
-				console.log(data);
-				$scope.pokemonData = data;
-				console.log($scope.pokemonData);
-				Pokemon.addPokemon(data)
-				//$scope.pokemon = data.pokemon;
+	var ref = firebase.database().ref().child("messages"); 
+	// create a synchronized array
+  	// click on `index.html` above to see it used in the DOM!
+  	$scope.messages = $firebaseArray(ref);
+
+  	$scope.player = Pokemon.getPlayer();
+
+  	$scope.search = function() {
+  		$scope.status = "Searching...";
+  		for (var i = 1; i <= 151 ; i++) {
+  			Pokemon.PokemonSearch.get({id:i},function(data){
+  				//console.log(data);
+  				$scope.pokemonData = data;
+  				console.log($scope.pokemonData.name);
+  				//$scope.player = $scope.messages.$getRecord(Pokemon.getPlayer().toString());  	
+  				$scope.messages.$add({pokemon:$scope.pokemonData});
+    			//$scope.pokemon = data.pokemon;
 				//console.log(data.pokemon);
 				/*for (var i = 0; i < $scope.pokemon.length; i++) {
 					console.log($scope.pokemon[i].name);
@@ -24,26 +32,11 @@ pokemonPlannerApp.controller('SearchCtrl', function ($scope,Pokemon) {
 			},function(data){
 				$scope.status = "There was an error";
 			});
-		}
-	}
-	
-	// Not working because of asynchronous call or something...
-	$scope.getAllPokemon = function() {
-		Pokemon.getAllPokemon(function(data) {
-			//console.log(data[0]);
-			$scope.pokemon = data[0];
-			console.log($scope.pokemon.length);
-			console.log($scope.pokemon);
-			//console.log($scope.pokemon.length);
-			//console.log(typeof $scope.pokemon);
-		});
-		
-
-	}
+  		}
+  	}
 
 	$scope.getPokemon = function(id) {
 		$scope.pokemon = Pokemon.getPokemon(id);
 		console.log($scope.pokemon);
 	}
-	
 });

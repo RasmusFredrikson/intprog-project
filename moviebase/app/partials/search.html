@@ -3,6 +3,12 @@
 
 <!-- TODO in Lab 5: Display the input box for search (you can ignore the type dropdown since BigOven does
 	not support it in free version) and list all the dishes that match the search. -->
+	
+	<!-- anything typed in here is magically saved to our Firebase database! -->
+	<input type="text" ng-model="data.text"/>
+	<!-- all changes from our Firebase database magically appear here! -->
+	<h1>You said: {{ data.text }}</h1>
+
 	<div class="container-fluid">
 		<div class="row content">
 			<div class="col-sm-9 col-md-9 col-lg-10 col-xl-10 text-left fill-height">
@@ -19,15 +25,15 @@
 					{{status}}
 				</div>
 
+
 				<!-- Search Results -->
 				<div class="row text-center">
-					<div ng-repeat="poke in pokemon">
+					<div ng-repeat="poke in messages">
 						<div class="col-sm-4 col-md-2 col-lg-2 col-xl-1">
-							<a href="#!/info/{{poke.id}}">
-								<img src="../images/{{poke.id}}.png" class="img100">
-								{{poke.name}}
+							<a href="#!/info/{{poke.pokemon.national_id}}">
+								<img ng-src="../images/{{poke.pokemon.national_id}}.png" class="img100">
+								{{poke.pokemon.name}}
 							</a>
-
 						</div>
 					</div>
 				</div>

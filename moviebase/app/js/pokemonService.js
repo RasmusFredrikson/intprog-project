@@ -3,10 +3,12 @@
 // dependency on any service you need. Angular will insure that the
 // service is created first time it is needed and then just reuse it
 // the next time.
-pokemonPlannerApp.factory('Pokemon',function ($resource) {
+pokemonPlannerApp.factory('Pokemon',function ($resource, $timeout) {
 
     // Set the configuration for your app
     // TODO: Replace with your project's config object
+    var player = 1;
+
     var config = {
         apiKey: "AIzaSyCopvBmpePv8mlx529uPfA2YZ9DJWve5qA",
         authDomain: "pokedex-baee2.firebaseapp.com",
@@ -18,36 +20,40 @@ pokemonPlannerApp.factory('Pokemon',function ($resource) {
     // Get a reference to the database service
     var database = firebase.database();
 
-    this.addPokemon = function(pokemon){
-        var ref = database.ref("pokemon")
-        ref.child(pokemon.national_id).set({
-            id: pokemon.national_id,
-            name: pokemon.name,
-            height: pokemon.height,
-            weight: pokemon.weight
-        })
+    this.setPlayer = function(newPlayer){
+        player = newPlayer;
     }
 
-    this.addUserPokemon = function(pokemon){
-        var ref = database.ref("user/pokemon")
-        ref.child(pokemon.national_id).set({
-            id: pokemon.national_id,
-            name: pokemon.name,
-            height: pokemon.height,
-            weight: pokemon.weight
-        })
+    this.getPlayer = function(){
+        return player;
     }
 
-    // Get all pokémon in the database
-    this.getAllPokemon = function(cb) {
-        var list = [];
-        var ref = database.ref("pokemon");
-        ref.once('value').then(function(snapshot) {
-            //console.log(snapshot.val());
-            list.push(snapshot.val());
-        }).then(function() {
-            cb(list);
+    this.addPokemon = function(){
+        var ref = database.ref("players")
+        ref.child(1).set({
+            id: "p1"
+            /*name: pokemon.name,
+            height: pokemon.height,
+            weight: pokemon.weight
+            */
         });
+        ref.child(2).set({
+            id: "p2"
+            /*name: pokemon.name,
+            height: pokemon.height,
+            weight: pokemon.weight
+            */
+        });
+    }
+
+    this.addUserPokemon = function(player, pokemon){
+        var ref = database.ref("players/" + player)
+        ref.child(pokemon.national_id).set({
+            id: pokemon.national_id,
+            name: pokemon.name,
+            height: pokemon.height,
+            weight: pokemon.weight
+        })
     }
 
     // Get all pokémon in the database
