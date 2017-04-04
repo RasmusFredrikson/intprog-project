@@ -7,7 +7,7 @@
 			<div ng-repeat="poke in myPokemonData">
 				<div class="col-sm-4 col-md-2 col-lg-2 col-xl-1">
 					<div class="col-sm-4">
-						<a href="#!/battle/{{poke.pokemon.national_id}}" class="thumbnail">
+						<a href="#!/battle" ng-click="setChosenPokemon(poke.pokemon)" class="thumbnail">
 							<strong class="blackColor">{{poke.pokemon.name}}</strong>
 							<img ng-src="../images/{{poke.pokemon.national_id}}.png" alt={{poke.pokemon.name}}>
 						</a>
