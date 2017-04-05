@@ -62,6 +62,11 @@
 	height: 100%;
 }
 
+.img50 {
+	width: 50%;
+	height: 50%;
+}
+
 .blackColor {
 	color: black;
 }

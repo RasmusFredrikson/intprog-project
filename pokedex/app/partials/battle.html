@@ -1,31 +1,25 @@
 <!-- We include the sidebar as it is shared across two screens. -->
 
 <div class="container-fluid">    
-	<div class="row content">
+	<div class="row content text-center">
 		<!-- Pokémon -->
-		<div class="row text-center">
-			<div class="col-sm-4 col-md-4 col-lg-2 col-xl-1">
-				<div class="col-sm-4 col-md-4">
-				<a href="#" class="thumbnail">
-
-				<strong class="blackColor">{{myPokemon[0].name}}</strong>
-					<img class="img100" ng-src="../images/{{myPokemon[0].national_id}}.png" alt={{myPokemon[0].name}}>
-					</a>
-				</div>
+		<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 thumbnail">
+			<h1 class="blackColor">{{myPokemon[0].name}}</h1>
+			<h3>HP: {{myPokemon[0].hp}}</h3>
+			<img class="img50" ng-src="../images/{{myPokemon[0].national_id}}.png" alt={{myPokemon[0].name}}>
+			<div ng-repeat="move in myPokemon[0].moves.slice(0,4)">
+				<a href="" class="btn btn-primary btn-lg" ng-click="playerAttacks(move.name)">{{move.name}}</a>
+			</div>
+			
+		</div>
+		
+		<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 thumbnail">
+			<h1 class="blackColor">{{opponentPokemon[0].name}}</h1>
+			<h3>HP: {{opponentPokemon[0].hp}}</h3>
+			<img class="img50" ng-src="../images/{{opponentPokemon[0].national_id}}.png" alt={{opponentPokemon[0].name}}>
+			<div ng-repeat="move in opponentPokemon[0].moves.slice(0,4)">
+				<a href="" class="btn btn-primary btn-lg" ng-click="opponentAttacks(move.name)">{{move.name}}</a>
 			</div>
 		</div>
 	</div>
-
-	<div class="col-sm-12 col-md-12 col-lg-2 col-xl-1">
-		<div class="col-sm-4 col-md-4">
-			<a href="#" class="thumbnail">
-				<strong class="blackColor">{{opponentPokemon[0].name}}</strong>
-				<img class="img100" ng-src="../images/{{opponentPokemon[0].national_id}}.png" alt={{opponentPokemon[0].name}}>
-			</a>
-		</div>
-	</div>
 </div>
-</div>
-</div>
-</div>
-
