@@ -12,6 +12,9 @@ pokemonPlannerApp.controller('BattleCtrl', function ($scope,Pokemon,$firebaseArr
 
     // create a synchronized array
     // click on `index.html` above to see it used in the DOM!
-    $scope.myPokemon = $firebaseArray(refMyPokemon);
+    $firebaseArray(refMyPokemon).$loaded().then(function() {
+    	$scope.myPokemon = $firebaseArray(refMyPokemon);
+    	console.log($scope.myPokemon)
+    });
     $scope.opponentPokemon = $firebaseArray(refOpponentPokemon)
 });

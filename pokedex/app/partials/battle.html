@@ -4,11 +4,12 @@
 	<div class="row content">
 		<!-- Pokémon -->
 		<div class="row text-center">
-			<div class="col-sm-12 col-md-12 col-lg-2 col-xl-1">
-				<div class="col-sm-12 col-md-12">
-				<a href="#!/battle/{{myPokemon.pokemon.national_id}}" class="thumbnail">
-				<strong class="blackColor">{{myPokemon.pokemon.name}}</strong>
-					<img class="img100" ng-src="../images/{{myPokemon.pokemon.national_id}}.png" alt={{myPokemon.poke.pokemon.name}}>
+			<div class="col-sm-4 col-md-4 col-lg-2 col-xl-1">
+				<div class="col-sm-4 col-md-4">
+				<a href="#" class="thumbnail">
+
+				<strong class="blackColor">{{myPokemon[0].name}}</strong>
+					<img class="img100" ng-src="../images/{{myPokemon[0].national_id}}.png" alt={{myPokemon[0].name}}>
 					</a>
 				</div>
 			</div>
@@ -16,10 +17,10 @@
 	</div>
 
 	<div class="col-sm-12 col-md-12 col-lg-2 col-xl-1">
-		<div class="col-sm-12 col-md-12">
-			<a href="#!/battle/{{opponentPokemon.pokemon.national_id}}" class="thumbnail">
-				<strong class="blackColor">{{opponentPokemon.pokemon.name}}</strong>
-				<img class="img100" ng-src="../images/{{opponentPokemon.pokemon.national_id}}.png" alt={{opponentPokemon.poke.pokemon.name}}>
+		<div class="col-sm-4 col-md-4">
+			<a href="#" class="thumbnail">
+				<strong class="blackColor">{{opponentPokemon[0].name}}</strong>
+				<img class="img100" ng-src="../images/{{opponentPokemon[0].national_id}}.png" alt={{opponentPokemon[0].name}}>
 			</a>
 		</div>
 	</div>

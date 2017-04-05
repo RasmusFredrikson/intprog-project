@@ -9,7 +9,7 @@ pokemonPlannerApp.controller('PrintPokemonlistCtrl', function ($scope,Pokemon, $
   	// create a synchronized array
     // click on `index.html` above to see it used in the DOM!
   	$scope.myPokemon = $firebaseArray(ref);
-    $scope.chosenPokemon = $firebaseArray(refChosenPokemon);
+    $scope.chosenPokemon = $firebaseObject(refChosenPokemon);
 
   	$scope.myPokemonData = $scope.myPokemon.$loaded(function() {
   		$scope.myPokemonData = $scope.myPokemon.$getRecord(Pokemon.getPlayer().toString()); 
@@ -18,6 +18,7 @@ pokemonPlannerApp.controller('PrintPokemonlistCtrl', function ($scope,Pokemon, $
   	});
 
     $scope.setChosenPokemon = function(poke) {
-      $scope.chosenPokemon.$add({pokemon: poke});
+      $scope.chosenPokemon.pokemon = poke;
+      $scope.chosenPokemon.$save();
     }
 });
