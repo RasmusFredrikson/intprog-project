@@ -71,6 +71,10 @@
 	color: black;
 }
 
+.redColor {
+	background-color: #ff8784;
+}
+
 .bottom-align {
 	display: flex;
   	flex-direction: row;

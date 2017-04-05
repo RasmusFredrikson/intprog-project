@@ -8,14 +8,14 @@ pokemonPlannerApp.controller('PrintPokemonlistCtrl', function ($scope,Pokemon, $
   var refChosenPokemon = firebase.database().ref().child("players/"+Pokemon.getPlayer().toString()+"/chosenPokemon")
   	// create a synchronized array
     // click on `index.html` above to see it used in the DOM!
-  	$scope.myPokemon = $firebaseArray(ref);
+    $scope.myPokemon = $firebaseArray(ref);
     $scope.chosenPokemon = $firebaseObject(refChosenPokemon);
 
-  	$scope.myPokemonData = $scope.myPokemon.$loaded(function() {
-  		$scope.myPokemonData = $scope.myPokemon.$getRecord(Pokemon.getPlayer().toString()); 
-  	},function(error) {
-  		console.log(error);
-  	});
+    $scope.myPokemonData = $scope.myPokemon.$loaded(function() {
+      $scope.myPokemonData = $scope.myPokemon.$getRecord(Pokemon.getPlayer().toString()); 
+    },function(error) {
+      console.log(error);
+    });
 
     $scope.setChosenPokemon = function(poke) {
       $scope.chosenPokemon.pokemon = poke;

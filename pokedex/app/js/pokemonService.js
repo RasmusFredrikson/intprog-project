@@ -101,6 +101,18 @@ pokemonPlannerApp.factory('Pokemon',function ($resource, $timeout) {
         }
     });
 
+    this.sort = function(list) {
+        return list.sort(Comparator)
+    }
+
+    function Comparator(a, b) {
+        if (a.pokemon===undefined || b.pokemon===undefined)
+            return 0;
+        if (a.pokemon.national_id < b.pokemon.national_id) return -1;
+        if (a.pokemon.national_id > b.pokemon.national_id) return 1;
+        return 0;
+    }
+
 
 
 

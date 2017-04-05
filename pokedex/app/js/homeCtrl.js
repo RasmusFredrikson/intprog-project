@@ -6,5 +6,8 @@ pokemonPlannerApp.controller('HomeCtrl', function ($scope,Pokemon, $firebaseObje
 	// add dish to menu and get total menu price
 	$scope.setPlayer = function(player) {
 		Pokemon.setPlayer(player);
+		var player = $firebaseObject(firebase.database().ref().child("settings/"+Pokemon.getPlayer().toString()));
+		player.occupied = true;
+		player.$save();
 	}
 });
