@@ -1,0 +1,42 @@
+
+
+<div class="col-sm-3 col-md-3 col-lg-2 col-xl-2 sidenav fill-height">
+
+	<input ng-model="query" placeholder="Enter key words" size="10" />
+
+	<a class="btn btn-danger btn-sm" ng-click="search(query, type)" href="" role="button" id="searchButton">Search</a>
+	{{status}}
+	fsdfsdfösjöp
+	<h3>My Pokémon</h3>
+	<div class="panel panel-danger">
+		<div class="panel-heading">
+			<div class="row">
+				<div class="col-sm-6">Name</div>
+				<div class="col-sm-6">Type</div>
+			</div>
+		</div>
+		<div class="panel-body" id="menuPanelBody">
+			<div ng-repeat="pokemon in myPokemon">
+				<div class="row">
+					<div class="col-sm-1">
+						<a class="btn btn-danger btn-xs deleteButton" href="" role="button" ng-click="">X</a>
+					</div>
+					<div class="col-sm-5">
+						{{pokemon.name}}
+					</div>
+					<div class="col-sm-5">
+						{{pokemon.type}}
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<div class="panel-footer text-right" id="menuPanelFooter">
+		</div>
+	</div>
+	<p class="text-center"><a class="btn btn-danger btn-md" href="#!/printPokemonlist" role="button" id="confirmDinner">Baaaattle</a></p>
+
+	<p class="text-center"><a class="btn btn-danger btn-md" ng-click="getPokemon(23)" href="" role="button"">Run getAllPokemon</a></p>
+
+	
+</div>

@@ -1,0 +1,30 @@
+<!-- We include the sidebar as it is shared across two screens. -->
+
+<div class="container-fluid">    
+	<div class="row content">
+		<!-- Pokémon -->
+		<div class="row text-center">
+			<div class="col-sm-12 col-md-12 col-lg-2 col-xl-1">
+				<div class="col-sm-12 col-md-12">
+				<a href="#!/battle/{{myPokemon.pokemon.national_id}}" class="thumbnail">
+				<strong class="blackColor">{{myPokemon.pokemon.name}}</strong>
+					<img class="img100" ng-src="../images/{{myPokemon.pokemon.national_id}}.png" alt={{myPokemon.poke.pokemon.name}}>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="col-sm-12 col-md-12 col-lg-2 col-xl-1">
+		<div class="col-sm-12 col-md-12">
+			<a href="#!/battle/{{opponentPokemon.pokemon.national_id}}" class="thumbnail">
+				<strong class="blackColor">{{opponentPokemon.pokemon.name}}</strong>
+				<img class="img100" ng-src="../images/{{opponentPokemon.pokemon.national_id}}.png" alt={{opponentPokemon.poke.pokemon.name}}>
+			</a>
+		</div>
+	</div>
+</div>
+</div>
+</div>
+</div>
+
