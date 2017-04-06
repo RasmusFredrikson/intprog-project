@@ -25,7 +25,9 @@ pokemonPlannerApp.controller('BattleCtrl', function ($scope,Pokemon,$firebaseObj
         $scope.opponentPokemon.pokemon.hp -= move.length;
         if ($scope.opponentPokemon.pokemon.hp <= 0) {
             $scope.opponentPokemon.pokemon.hp = 0;
-            alert("Opponent lost!");
+            $scope.opponentPokemon.$save().then(function() {
+                alert("Opponent lost!");
+            });            
         }
         $scope.opponentPokemon.$save();
     }
@@ -35,7 +37,9 @@ pokemonPlannerApp.controller('BattleCtrl', function ($scope,Pokemon,$firebaseObj
         $scope.myPokemon.pokemon.hp -= move.length;
         if ($scope.myPokemon.pokemon.hp <= 0) {
             $scope.myPokemon.pokemon.hp = 0;
-            alert("Player lost!");
+            $scope.myPokemon.$save().then(function() {
+                alert("Player lost!");
+            });
         }
         $scope.myPokemon.$save();
     }
