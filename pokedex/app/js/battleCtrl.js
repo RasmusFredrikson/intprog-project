@@ -1,6 +1,6 @@
 // Search controller that we use whenever we have a search inputs
 // and search results
-pokemonPlannerApp.controller('BattleCtrl', function ($scope,Pokemon,$firebaseArray) {
+pokemonPlannerApp.controller('BattleCtrl', function ($scope,Pokemon,$firebaseObject) {
     // TODO in Lab 5: you will need to implement a method that searchers for dishes
     // including the case while the search is still running.
 
@@ -9,33 +9,35 @@ pokemonPlannerApp.controller('BattleCtrl', function ($scope,Pokemon,$firebaseArr
 
     var refOpponentPokemon = firebase.database().ref().child("players/" + $scope.otherPlayer + "/chosenPokemon");
 
-    // create a synchronized array
+    // create a synchronized object
     // click on `index.html` above to see it used in the DOM!
-    $firebaseArray(refMyPokemon).$loaded().then(function() {
-    	$scope.myPokemon = $firebaseArray(refMyPokemon);
+    $firebaseObject(refMyPokemon).$loaded().then(function() {
+    	$scope.myPokemon = $firebaseObject(refMyPokemon);
     	console.log($scope.myPokemon);
     });
 
-    $firebaseArray(refOpponentPokemon).$loaded().then(function() {
-        $scope.opponentPokemon = $firebaseArray(refOpponentPokemon);
+    $firebaseObject(refOpponentPokemon).$loaded().then(function() {
+        $scope.opponentPokemon = $firebaseObject(refOpponentPokemon);
     });
 
     $scope.playerAttacks = function(move) {
         console.log(move.length);
-        $scope.opponentPokemon[0].hp -= move.length;
-        if ($scope.opponentPokemon[0].hp <= 0) {
-            $scope.opponentPokemon[0].hp = 0;
+        $scope.opponentPokemon.pokemon.hp -= move.length;
+        if ($scope.opponentPokemon.pokemon.hp <= 0) {
+            $scope.opponentPokemon.pokemon.hp = 0;
             console.log("Opponent lost!");
         }
+        $scope.opponentPokemon.$save();
     }
 
     $scope.opponentAttacks = function(move) {
         console.log(move);
-        $scope.myPokemon[0].hp -= move.length;
-        if ($scope.myPokemon[0].hp <= 0) {
-            $scope.myPokemon[0].hp = 0;
+        $scope.myPokemon.pokemon.hp -= move.length;
+        if ($scope.myPokemon.pokemon.hp <= 0) {
+            $scope.myPokemon.pokemon.hp = 0;
             console.log("Player lost!");
         }
+        $scope.myPokemon.$save();
     }
     
 });
