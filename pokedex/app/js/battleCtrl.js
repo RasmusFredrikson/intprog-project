@@ -5,20 +5,20 @@ pokemonPlannerApp.controller('BattleCtrl', function ($scope,Pokemon,$firebaseObj
     // including the case while the search is still running.
 
     var refMyPokemon = firebase.database().ref().child("players/" + Pokemon.getPlayer().toString() + "/chosenPokemon");
-    $scope.otherPlayer = Pokemon.getPlayer() == 1 ? 2:1;
-
-    var refOpponentPokemon = firebase.database().ref().child("players/" + $scope.otherPlayer + "/chosenPokemon");
-
-    // create a synchronized object
-    // click on `index.html` above to see it used in the DOM!
     $firebaseObject(refMyPokemon).$loaded().then(function() {
-    	$scope.myPokemon = $firebaseObject(refMyPokemon);
-    	console.log($scope.myPokemon);
+        $scope.myPokemon = $firebaseObject(refMyPokemon);
     });
 
+    
+    $scope.otherPlayer = Pokemon.getPlayer() == 1 ? 2:1;
+    var refOpponentPokemon = firebase.database().ref().child("players/" + $scope.otherPlayer + "/chosenPokemon");
     $firebaseObject(refOpponentPokemon).$loaded().then(function() {
         $scope.opponentPokemon = $firebaseObject(refOpponentPokemon);
     });
+
+
+    var refTurn = firebase.database().ref().child("settings/turn");
+    $scope.turn = $firebaseObject(refTurn);
 
     $scope.playerAttacks = function(move) {
         console.log(move.length);
@@ -28,6 +28,13 @@ pokemonPlannerApp.controller('BattleCtrl', function ($scope,Pokemon,$firebaseObj
             alert("Opponent lost!");
         }
         $scope.opponentPokemon.$save();
+        $scope.turn.player = $scope.otherPlayer;
+        $scope.turn.$save();
+    }
+
+    $scope.checkTurn = function() {
+        console.log($scope.turn == Pokemon.getPlayer())
+        return $scope.turn.player != Pokemon.getPlayer();
     }
 
     $scope.opponentAttacks = function(move) {

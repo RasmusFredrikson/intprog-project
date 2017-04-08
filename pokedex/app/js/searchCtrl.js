@@ -13,9 +13,10 @@ pokemonPlannerApp.controller('SearchCtrl', function ($scope,Pokemon, $firebaseAr
 
   	$scope.search = function() {
   		$scope.status = "Searching...";
-  		for (var i = 1; i <= 151 ; i++) {
+  		for (var i = 1; i <= 718 ; i++) {
   			Pokemon.PokemonSearch.get({id:i},function(poke){
   				$scope.pokedex.$add({pokemon:poke});
+  				//ref.remove()
   			},function(poke){
   				$scope.status = "There was an error";
   			});
