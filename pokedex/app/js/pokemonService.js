@@ -7,7 +7,7 @@ pokemonPlannerApp.factory('Pokemon',function ($resource, $timeout) {
 
     // Set the configuration for your app
     // TODO: Replace with your project's config object
-    var player = 1;
+    var player = 0;
 
     var config = {
         apiKey: "AIzaSyCopvBmpePv8mlx529uPfA2YZ9DJWve5qA",
@@ -106,7 +106,7 @@ pokemonPlannerApp.factory('Pokemon',function ($resource, $timeout) {
     }
 
     function Comparator(a, b) {
-        if (a.pokemon===undefined || b.pokemon===undefined)
+        if (a.pokemon==null || b.pokemon==null)
             return 0;
         if (a.pokemon.national_id < b.pokemon.national_id) return -1;
         if (a.pokemon.national_id > b.pokemon.national_id) return 1;

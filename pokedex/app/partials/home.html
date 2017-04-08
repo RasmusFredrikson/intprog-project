@@ -1,5 +1,5 @@
 <!-- TODO in Lab 5: there is not much to do on the home screen. Just arrange the layout so it
 looks a bit nicer. -->
 <h1>Choose player</h1>
-<a href="#!/search" class="btn btn-primary btn-lg" ng-click="setPlayer(1)">Player 1</a>
-<a href="#!/search" class="btn btn-primary btn-lg" ng-click="setPlayer(2)">Player 2</a>
+<button onclick="window.location.href='#!/search'" class="btn btn-primary btn-lg" ng-click="setPlayer(1)" ng-disabled="checkPlayer(1)">Player 1</button>
+<button onclick="window.location.href='#!/search'" class="btn btn-primary btn-lg" ng-click="setPlayer(2)" ng-disabled="checkPlayer(2)">Player 2</button>
