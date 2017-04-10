@@ -1,20 +1,28 @@
 <!-- We include the sidebar as it is shared across two screens. -->
 <ng-include src="'partials/sidebar.html'" ng-controller="SidebarCtrl"></ng-include>
 <div class="container-fluid">    
-	<div class="row content">
-		<!-- Pokémon -->
-		<div class="row text-center">
-			<div ng-repeat="poke in myPokemonData">
-				<div class="col-sm-4 col-md-4 col-lg-2 col-xl-1">
-					<a href="#!/battle" ng-click="setChosenPokemon(poke.pokemon)" class="thumbnail">
-						<strong class="blackColor">{{poke.pokemon.name}}</strong>
-						<img ng-src="../images/{{poke.pokemon.national_id}}.png" alt={{poke.pokemon.name}}>
-					</a>
-				</div>
-			</div>
 
+	<!-- Pokémon -->
+	<div class="row text-center content">
+		<div ng-repeat="poke in myPokemonData">
+			<div class="col-sm-4 col-md-4 col-lg-2 col-xl-1">
+				<a href="#!/battle" ng-click="setChosenPokemon(poke.pokemon)" class="thumbnail">
+					<strong class="blackColor">{{poke.pokemon.name}}</strong>
+					
+					<img ng-src="../images/{{poke.pokemon.national_id}}.png" alt={{poke.pokemon.name}}>
+					<div class="row">
+						<div ng-repeat="type in poke.pokemon.types">
+							<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
+								<img src="../images/types/{{type.name}}.png" class="img100">
+							</div>
+						</div>
+					</div>
+				</a>
+			</div>
 		</div>
+
 	</div>
+
 </div>
 </div>
 

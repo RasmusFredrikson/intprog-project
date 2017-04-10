@@ -89,6 +89,10 @@
 	padding: 0px;
 }
 
+.centerAlign {
+	text-align:center;
+}
+
 .margintop20 {
 	margin-top: 20px;
 }

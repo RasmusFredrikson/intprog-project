@@ -7,6 +7,7 @@
 			<h1 class="blackColor">{{myPokemon.pokemon.name}}</h1>
 			<h3>HP: {{myPokemon.pokemon.hp}}</h3>
 			<img class="img50" ng-src="../images/{{myPokemon.pokemon.national_id}}.png" alt={{myPokemon.pokemon.name}}>
+			<h3>Choose move:</h3>
 			<div class="row">
 				<div ng-repeat="move in myPokemon.pokemon.moves.slice(0,2)">
 					<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
@@ -20,6 +21,9 @@
 						<button href="" class="btn-group-justified btn btn-primary btn-lg" ng-click="playerAttacks(move.name)" ng-disabled="checkTurn()">{{move.name}}</button>
 					</div>
 				</div>
+			</div>
+			<div class="row margintop20">
+				<button href="#!/printPokemonlist" class="btn btn-primary btn-lg" ng-disabled="checkTurn()">Switch Pokémon</button>
 			</div>
 			
 		</div>
