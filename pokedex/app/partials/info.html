@@ -2,12 +2,12 @@
 <ng-include src="'partials/sidebar.html'" ng-controller="SidebarCtrl"></ng-include>
 <div class="container-fluid">    
 	<div class="row content" >
-		<div class="col-sm-9 col-md-9 col-lg-10 col-xl-10">	
-			<p><a class="btn btn-danger btn-sm" href="#!/search" role="button">Back</a></p>
-			<h3>{{pokemon.name}} #{{pokemon.national_id}}</h3>				
-			<div class="row padding20">
+		<div class="col-sm-9 col-md-9 col-lg-10 col-xl-10">				
+			
+
+			<div class="row padding20" style="display: flex;">
 				<!-- Image -->
-				<div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
+				<div class="col-sm-6 col-md-4 col-lg-4 col-xl-4">
 					<div>
 						<img src="../images/{{pokemon.national_id}}.png" class="img100">
 					</div>
@@ -20,52 +20,57 @@
 					</div>
 				</div>
 
-
 				<!-- Information -->			
-				<div class="jumbotron col-sm-6 col-md-4 col-lg-4 col-xl-3 padding20" style="background-color: #d9534f">
-					<div class="row">
-						<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
-							<h4>Height</h4>
-							{{pokemon.height/10}} m
+				<div class="col-sm-6 col-md-4 col-lg-4 col-xl-4 padding20" style="background-color: #d9534f; position: relative; border-radius: 5px;">
+					<div style="color: white;">
+						<h3>#{{pokemon.national_id}} {{pokemon.name}}</h3>
+						<div class="row">
+							<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
+								<h4>Height</h4>
+								{{pokemon.height/10}} m
+							</div>
+							<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
+								<h4>Category</h4>
+								{{pokemon.species}}
+							</div>
 						</div>
-						<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
-							<h4>Category</h4>
-							{{pokemon.species}}
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
-							<h4>Weight</h4>
-							{{pokemon.weight/10}} kg
-						</div>
-						<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
-							<h4>Abilities</h4>
-							<div ng-repeat="ability in pokemon.abilities">
-								{{ability.name}}
+						<div class="row">
+							<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
+								<h4>Weight</h4>
+								{{pokemon.weight/10}} kg
+							</div>
+							<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
+								<h4>Abilities</h4>
+								<div ng-repeat="ability in pokemon.abilities">
+									{{ability.name}}
+								</div>
 							</div>
 						</div>
 					</div>
-
-					
-				</div>
-				<a href="#!/search" class="btn btn-success btn-lg" ng-click="addUserPokemon()">Add Pokémon</a>
-			</div>
-			<div class="row">
-				<div class="col-sm-4 col-md-4 col-xs-4">
-					{{description}}
-				</div>
-			</div>
-			<div class="row padding20">
-
-
-				<div class=" jumbotron col-sm-6 col-md-6 col-lg-6 col-xl-6">
-					<h4>Moves</h4>
-					<div ng-repeat="move in pokemon.moves">
-						<li>{{move.name}}</li>
+					<div class="row" style="margin-top: 20px; padding: 10px; background-color: white; border-radius: 5px;">
+						<h4>Description:</h4>
+						{{description}}
 					</div>
-
+					<div class="row" style="position: absolute; bottom: 20px; margin-top: 20px;">
+						<a class="btn btn-success btn-lg"  href="#!/search" ng-click="addUserPokemon()">Add to My Pokémon</a>
+						<a class="btn btn-default btn-lg" href="#!/search" role="button">Back</a>
+					</div>
 				</div>
 			</div>
+
+			<!--Moves-->
+			<div class="row padding20">
+				<div class="jumbotron col-sm-8 col-md-8 col-lg-8 col-xl-8">
+					<h1>Moves</h1>
+					<div style="max-height: 500px; overflow: auto; background-color: white;">
+						<div ng-repeat="move in pokemon.moves">
+							<li style="font-size: 30px;">{{move.name}}</li>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
 		</div>
 	</div>
 </div>
