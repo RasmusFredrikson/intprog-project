@@ -2,7 +2,7 @@
 
 <div class="container-fluid">
 	<div class="row text-center">
-	<div class="panel panel-danger ">
+		<div class="panel panel-danger ">
 			<div class="panel-heading">
 				<h3>{{printTurn()}} turn to make a move...</h3>
 			</div>
@@ -18,6 +18,10 @@
 		<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
 			<h1 class="blackColor">{{myPokemon.pokemon.name}}</h1>
 			<h3>HP: {{myPokemon.pokemon.hp}}</h3>
+			<div class="row">
+				<svg width="150" height="10" id="myPokemonSVG"></svg>
+			</div>
+			
 			<img class="img50" ng-src="../images/{{myPokemon.pokemon.national_id}}.png" alt={{myPokemon.pokemon.name}}>
 			<h3>Choose move:</h3>
 			<div class="row">

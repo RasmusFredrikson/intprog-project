@@ -4,10 +4,45 @@ pokemonPlannerApp.controller('BattleCtrl', function ($scope,Pokemon,$firebaseObj
     // TODO in Lab 5: you will need to implement a method that searchers for dishes
     // including the case while the search is still running.
 
+    
+
     var refMyPokemon = firebase.database().ref().child("players/" + Pokemon.getPlayer().toString() + "/chosenPokemon");
     $firebaseObject(refMyPokemon).$loaded().then(function() {
         $scope.myPokemon = $firebaseObject(refMyPokemon);
-    });
+            //console.log(typeof $scope.myPokemon.pokemon.hp);
+            $scope.data = [50];
+            //console.log($scope.data);
+            $scope.svg = d3.select("#myPokemonSVG");
+            //console.log($scope.svg);
+            $scope.g = $scope.svg.append("g");
+            $scope.g.selectAll(".bar")
+            .data([50])
+            .enter().append("rect")
+            .attr("class", "bar")
+            .attr("x", 0)
+            .attr("y", 0)
+            .attr("width", function(d) {
+                return d;
+            })
+            .attr("height", 10)
+            .style("fill", "red");
+        });
+
+    setTimeout(function(){
+        $scope.g.selectAll(".bar").data([20]);
+        d3.select("#myPokemonSVG").transition()
+        .selectAll(".bar")   // change the bars
+        .duration(1000)
+        .attr("x", 0)
+        .attr("y", 0)
+        .attr("width", function(d) {
+            return d;
+        })
+        .attr("height", 10)
+        .style("fill", "blue");
+    },5000);
+
+    
 
     
     $scope.otherPlayer = Pokemon.getPlayer() == 1 ? 2:1;
