@@ -1,6 +1,7 @@
 - Add some avatar picture to the pokemons in the “My pokémons” list to the left. ()
-- You could also use images for “fire” and “water” instead of text to make the interface look better. ()
-- Indicate whose turn it is to attack and use some “you won” animation instead of displaying an alert after the battle is over. ()
+- You could also use images for “fire” and “water” instead of text to make the interface look better. (X)
+- Indicate whose turn it is to attack (X)
+- Use some “you won” animation instead of displaying an alert after the battle is over. ()
 - Add text or a message saying that you are waiting for an opponent if no one has chosen the other player. ()
 - Add button to abort battle ()
 

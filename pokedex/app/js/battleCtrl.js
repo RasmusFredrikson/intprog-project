@@ -23,6 +23,7 @@ pokemonPlannerApp.controller('BattleCtrl', function ($scope,Pokemon,$firebaseObj
     $scope.playerAttacks = function(move) {
         console.log(move.length);
         $scope.opponentPokemon.pokemon.hp -= move.length;
+        $scope.status = $scope.myPokemon.pokemon.name + " caused " + move.length + " damage on " + $scope.opponentPokemon.pokemon.name + "!";
         if ($scope.opponentPokemon.pokemon.hp <= 0) {
             $scope.opponentPokemon.pokemon.hp = 0;
             $scope.opponentPokemon.$save().then(function() {
@@ -39,9 +40,24 @@ pokemonPlannerApp.controller('BattleCtrl', function ($scope,Pokemon,$firebaseObj
         return $scope.turn.player != Pokemon.getPlayer();
     }
 
+    $scope.printTurn = function() {
+        if ($scope.turn.player != Pokemon.getPlayer()) {
+            return "Opponent's";
+        } else {
+            return "Your";
+        }
+        console.log($scope.turn);
+    }
+
+    $scope.switchPokemon = function() {
+        $scope.turn.player = $scope.otherPlayer;
+        $scope.turn.$save();
+    }
+
     $scope.opponentAttacks = function(move) {
         console.log(move);
         $scope.myPokemon.pokemon.hp -= move.length;
+        $scope.status = $scope.opponentPokemon.pokemon.name + " caused " + move.length + " damage on " + $scope.myPokemon.pokemon.name + "!";
         if ($scope.myPokemon.pokemon.hp <= 0) {
             $scope.myPokemon.pokemon.hp = 0;
             $scope.myPokemon.$save().then(function() {
