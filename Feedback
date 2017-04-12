@@ -1,33 +1,41 @@
+-------TODO---------
+
+-------Prio 1 (Easy) -------
 - Add some avatar picture to the pokemons in the “My pokémons” list to the left. ()
-- You could also use images for “fire” and “water” instead of text to make the interface look better. (X)
-- Indicate whose turn it is to attack (X)
 - Use some “you won” animation instead of displaying an alert after the battle is over. ()
 - Add text or a message saying that you are waiting for an opponent if no one has chosen the other player. ()
 - Add button to abort battle ()
+- I could not find which player I was choosing for(after choosing player 1 on first screen) ()
 
-1. The design is simple and clear but very less information is shown to the user at the same time. Skills of Pokemon or few other required features of Pokemon during the battle can be displayed in the sidebar or just text with bullet points inside the battle view. ()
 
-6.  The interaction between the players can be provided by an exchange of stickers just like in hike or messenger. ()
-
-- I am not an expert on how pokemons work and not sure how the turns work, provide some information about how to play and how many attacks you get to make in one turn, when its over etc.. ()
-
-- It would be really cool if you could make some animations when they are attacked (sprites). And maybe you could have the HP both as a number and as a bar. ()
+-------Prio 2 (Quite easy) -------
 - You could also add some information about the different attacks (what do they do and how much damage do they cause). ()
+- Skills of Pokemon or few other required features of Pokemon during the battle can be displayed in the sidebar or just text with bullet points inside the battle view. ()
+- Provide some information about how to play and how many attacks you get to make in one turn, when its over etc.. ()
+- It would be really cool if you could make some animations when they are attacked (sprites). ()
+- Have the HP both as a number and as a bar. ()
+- I would also like a lot of more information on the other player. maybe a console view or something so that I can see that the other player has connected, or that the other player is waiting for me to pick my pokemon. ()
+- Fix ng-click on home screen.
 
- 
 
-- The choose player screen is quite empty, think about whether that small window needs a separate page, or if you can implement it as a kind of drop down meny in the navbar. ()
-
+-------Prio 3 (Difficult) -------
 - Is there a limit for how many pokémon you can bring to battle? What happens if player two chooses a different amount of pokémon than you do?
-What's the point of the game? Whats happens when you win a match? You could implement a login-system and some kind of elosystem where you can see your and your friends ranks. ()
+What's the point of the game? Whats happens when you win a match?  ()
 
 - What happens when a pokemon dies (or faints)? Does the other pokemon in your list get swapped in? I assume as much, but maybe in the view before the battle, you could change the order of the pokemon, and also maybe have a lot more info about them (stats, attacks, etc). ()
 
-- I would also like a lot of more information on the other player. maybe a console view or something so that I can see that the other player has connected, or that the other player is waiting for me to pick my pokemon. ()
+
+---------Not Prioritized (Very difficult) --------
+
+- The interaction between the players can be provided by an exchange of stickers just like in hike or messenger. ()
+- You could implement a login-system and some kind of elosystem where you can see your and your friends ranks. ()
 
 
-I could not find which player I was choosing for(after choosing player 1 on first screen) ()
+---------Completed-----------
 
-The placement of logos can be put in a grid better, the non uniform fashion(that is just aesthetics and can be fixed at a later stage as well. ()
-
-Also while choosing a pokemon, I could not find an option to cancel the selection. ()
+- You could also use images for “fire” and “water” instead of text to make the interface look better. (X)
+- Indicate whose turn it is to attack (X)
+- Also while choosing a pokemon, I could not find an option to cancel the selection. (X)
+- The choose player screen is quite empty, think about whether that small window needs a separate page, or if you can implement it as a kind of drop down meny in the navbar. (X)
+- The placement of logos can be put in a grid better, the non uniform fashion(that is just aesthetics and can be fixed at a later stage as well. (X)
+- 
