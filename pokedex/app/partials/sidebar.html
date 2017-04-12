@@ -1,14 +1,7 @@
-
-
 <div class="col-sm-3 col-md-3 col-lg-2 col-xl-2 sidenav fill-height">
-
-	<h3>My Pokémon</h3>
 	<div class="panel panel-danger">
 		<div class="panel-heading">
-			<div class="row">
-				<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">Name</div>
-				<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">Type</div>
-			</div>
+			<h3>My Pokémon</h3>
 		</div>
 		<div class="panel-body" id="menuPanelBody">
 			<div ng-repeat="poke in sortMyPokemon()">
@@ -16,19 +9,18 @@
 					<!-- <div class="col-sm-1">
 						<a class="btn btn-danger btn-xs deleteButton" href="" role="button" ng-click="">X</a>
 					</div> -->
-					<div class="col-sm-5 col-md-5 col-lg-5 col-xl-5">
+					<div class="col-sm-7 col-md-7 col-lg-7 col-xl-7">
 						{{poke.pokemon.name}}
-					</div>
-					<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 padding0">
 						<div ng-repeat="type in poke.pokemon.types">
 							<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 padding0 ">
-								<img src="../images/types/{{type.name}}.png" class="img100">
+								<img src="../images/types/{{type.name}}.png" class="img90">
 							</div>			
 						</div>
-
+					</div>
+					<div class="col-sm-5 col-md-5 col-lg-5 col-xl-5">
+						<img src="../images/{{poke.pokemon.national_id}}.png" class="img100">
 					</div>
 				</div>
-
 			</div>
 		</div>
 	</div>
