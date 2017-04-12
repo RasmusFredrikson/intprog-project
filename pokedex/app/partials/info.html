@@ -13,7 +13,7 @@
 				</div>
 
 				<!-- Information -->			
-				<div class="col-sm-5 col-md-5 col-lg-5 col-xl-5">
+				<div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
 					<div class="row">
 						<div ng-repeat="type in pokemon.types">
 							<div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
@@ -52,11 +52,14 @@
 				</div>
 
 				<!--Moves-->
-				<div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 greyColor movesBorder">
+				<div class="col-sm-4 col-md-4 col-lg-4 col-xl-4 greyColor movesBorder">
 					<h1>Moves</h1>
 					<div class="scrollable-menu">
 						<div ng-repeat="move in pokemon.moves">
-							<li>{{move.name}}</li>
+							<div class="columns" ng-if="$even">
+								<li>{{pokemon.moves[$index].name}}</li>
+								<li>{{pokemon.moves[$index+1].name}}</li>
+							</div>
 						</div>
 					</div>
 				</div>
