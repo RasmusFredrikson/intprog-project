@@ -1,9 +1,15 @@
 <!-- We include the sidebar as it is shared across two screens. -->
 <ng-include src="'partials/sidebar.html'" ng-controller="SidebarCtrl"></ng-include>
-<div class="container-fluid">    
+<div class="container-fluid"> 
+
 
 	<!-- Pokémon -->
-	<div class="row text-center content">
+	<div class="row content text-center">
+
+		<div class="col-sm-9 col-md-9 col-lg-10 col-xl-10 text-right padding20">
+			<a href="#!/search" class="btn btn-danger btn-lg" ng-click="reset()">Abort Battle</a>
+		</div>
+		
 		<div ng-repeat="poke in myPokemonData">
 			<div class="col-sm-4 col-md-4 col-lg-2 col-xl-1">
 				<a href="#!/battle" ng-click="setChosenPokemon(poke.pokemon)" class="thumbnail">

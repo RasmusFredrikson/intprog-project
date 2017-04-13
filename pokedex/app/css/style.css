@@ -82,6 +82,11 @@
 	height: 50%;
 }
 
+.img30 {
+	width: 30%;
+	height: 30%;
+}
+
 .blackColor {
 	color: black;
 }
@@ -118,6 +123,10 @@
 
 .margin0 {
 	margin: 0px;
+}
+
+.margintop0 {
+	margin-top: 0px;
 }
 
 .centerAlign {

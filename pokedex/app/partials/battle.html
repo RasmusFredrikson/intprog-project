@@ -22,8 +22,8 @@
 				<svg width="150" height="10" id="myPokemonSVG"></svg>
 			</div>
 			
-			<img class="img50" ng-src="../images/{{myPokemon.pokemon.national_id}}.png" alt={{myPokemon.pokemon.name}}>
-			<h3>Choose move:</h3>
+			<img class="img30" ng-src="../images/{{myPokemon.pokemon.national_id}}.png" alt={{myPokemon.pokemon.name}}>
+			<h3 class="margintop0">Choose move:</h3>
 			<div class="row">
 				<div ng-repeat="move in myPokemon.pokemon.moves.slice(0,2)">
 					<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
@@ -47,7 +47,7 @@
 		<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
 			<h1 class="blackColor">{{opponentPokemon.pokemon.name}}</h1>
 			<h3>HP: {{opponentPokemon.pokemon.hp}}</h3>
-			<img class="img50" ng-src="../images/{{opponentPokemon.pokemon.national_id}}.png" alt={{opponentPokemon.pokemon.name}}>
+			<img class="img30" ng-src="../images/{{opponentPokemon.pokemon.national_id}}.png" alt={{opponentPokemon.pokemon.name}}>
 			<!-- <div ng-repeat="move in opponentPokemon.pokemon.moves.slice(0,4)">
 				<a href="" class="btn-group-justified btn btn-primary btn-lg" ng-click="opponentAttacks(move.name)">{{move.name}}</a>
 			</div> -->

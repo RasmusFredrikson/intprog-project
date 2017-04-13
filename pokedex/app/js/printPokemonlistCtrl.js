@@ -21,4 +21,8 @@ pokemonPlannerApp.controller('PrintPokemonlistCtrl', function ($scope,Pokemon, $
       $scope.chosenPokemon.pokemon = poke;
       $scope.chosenPokemon.$save();
     }
+
+    $scope.reset = function() {
+      console.log("Running reset!");
+    }
 });
