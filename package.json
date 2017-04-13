@@ -1,10 +1,13 @@
 {
-  "version": "0.0.0",
+  "version": "1.0.0",
   "private": true,
-  "name": "dinner-planner",
-  "description": "A starter project for Interaction Programming course Lab5",
-  "repository": "https://github.com/kth-csc-iprog/dinnerplanner-html",
+  "name": "pokedex",
+  "description": "Project in interaction programming",
+  "repository": "https://github.com/RasmusFredrikson/intprog-project.git",
   "license": "MIT",
+  "engines": {
+    "node": "7.6.0"
+  },
   "devDependencies": {
     "http-server": "^0.9.0",
     "bower": "^1.8.x"
