@@ -1,11 +1,9 @@
 -------TODO---------
 
 -------Prio 1 (Easy) -------
-- Add some avatar picture to the pokemons in the “My pokémons” list to the left. ()
 - Use some “you won” animation instead of displaying an alert after the battle is over. ()
 - Add text or a message saying that you are waiting for an opponent if no one has chosen the other player. ()
 - Add button to abort battle ()
-- I could not find which player I was choosing for(after choosing player 1 on first screen) ()
 
 
 -------Prio 2 (Quite easy) -------
@@ -38,4 +36,5 @@ What's the point of the game? Whats happens when you win a match?  ()
 - Also while choosing a pokemon, I could not find an option to cancel the selection. (X)
 - The choose player screen is quite empty, think about whether that small window needs a separate page, or if you can implement it as a kind of drop down meny in the navbar. (X)
 - The placement of logos can be put in a grid better, the non uniform fashion(that is just aesthetics and can be fixed at a later stage as well. (X)
-- 
+- Add some avatar picture to the pokemons in the “My pokémons” list to the left. (X)
+- I could not find which player I was choosing for(after choosing player 1 on first screen) (X)
