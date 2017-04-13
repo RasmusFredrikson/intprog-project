@@ -2,6 +2,8 @@
 // display or modify the Movie menu
 pokemonPlannerApp.controller('HomeCtrl', function ($scope,Pokemon, $firebaseObject) {
 
+	console.log("Running HomeCtrl");
+
 	// TODO in Lab 5: Implement the methods to get the Movie menu
 	var refPlayer = firebase.database().ref().child("settings/");
 	var player1 = $firebaseObject(refPlayer.child("1"));
@@ -19,16 +21,17 @@ pokemonPlannerApp.controller('HomeCtrl', function ($scope,Pokemon, $firebaseObje
 
 	$scope.checkPlayer = function(player){
 		if(player=="1"){
-			return player1.occupied
+			return player1.occupied;
 		}
 		if(player=="2"){
-			return player2.occupied
+			return player2.occupied;
 		}
 	}
 
 
 	// add dish to menu and get total menu price
 	$scope.setPlayer = function(player) {
+		console.log("Running setPlayer!");
 		Pokemon.setPlayer(player);
 		
 		if(player=="1"){

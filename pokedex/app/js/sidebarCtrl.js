@@ -20,4 +20,6 @@ pokemonPlannerApp.controller('SidebarCtrl', function ($scope,Pokemon, $firebaseA
   		return Pokemon.sort($scope.myPokemon);
   	}
 
+  	$scope.player = Pokemon.getPlayer();
+
 });
