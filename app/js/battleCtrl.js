@@ -50,11 +50,6 @@ pokemonPlannerApp.controller('BattleCtrl', function ($scope,Pokemon,$firebaseObj
         }
     }
 
-    $scope.switchPokemon = function() {
-        $scope.turn.player = $scope.otherPlayer;
-        $scope.turn.$save();
-    }
-
     $scope.reset = function(abandonded) {
         if (abandonded == true) {
             alert("You abandoned the game :(");
