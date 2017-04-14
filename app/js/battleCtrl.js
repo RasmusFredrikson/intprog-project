@@ -56,8 +56,11 @@ pokemonPlannerApp.controller('BattleCtrl', function ($scope,Pokemon,$firebaseObj
     }
 
     $scope.reset = function(abandonded) {
-        if (abandonded == true)
+        if (abandonded == true) {
             alert("You abandoned the game :(");
+            $scope.victor.player = $scope.otherPlayer;
+            $scope.victor.$save();
+        }
         $scope.turn.player = false;
         refOpponentPokemon.remove();
         refMyPokemon.remove();
@@ -66,24 +69,28 @@ pokemonPlannerApp.controller('BattleCtrl', function ($scope,Pokemon,$firebaseObj
     }
 
     $scope.checkLoser = function(winner) {
+        if (winner != 1 && winner != 2)
+            return null;
         if ($scope.otherPlayer != winner)
             return $scope.otherPlayer;
-        else 
+        else
             return Pokemon.getPlayer();
     }
 
     $scope.checkFaintedPokemon = function(winner) {
+        if (winner != 1 && winner != 2)
+            return null;
         if ($scope.otherPlayer != winner)
             return $scope.opponentPokemon.pokemon.name;
-        else 
+        else
             return $scope.myPokemon.pokemon.name;
     }
 
     $scope.checkStatus = function() {
-        if ($scope.opponentPokemon.pokemon == null)
-            return ("Waiting for player " + $scope.otherPlayer + "...");
-        else
+        if ($scope.opponentPokemon.pokemon.hp != null)
             return ("HP: " + $scope.opponentPokemon.pokemon.hp);
+        else
+            return ("Waiting for player " + $scope.otherPlayer + "...");
     }
 
 });

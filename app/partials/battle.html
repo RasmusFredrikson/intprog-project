@@ -8,7 +8,7 @@
 			</div>
 			<div class="panel-body">
 				<h4 ng-if="victor.player == null">{{status.desc}}</h4>
-				<h4 ng-if="victor.player == 1 || victor.player == 2">Player {{checkLoser(victor.player)}}'s  {{checkFaintedPokemon(victor.player)}} fainted!</h4>				
+				<h4 ng-if="(victor.player == 1 || victor.player == 2) && checkFaintedPokemon(victor.player) != null">Player {{checkLoser(victor.player)}}'s  {{checkFaintedPokemon(victor.player)}} fainted!</h4>				
 			</div>
 		</div>
 	</div>
