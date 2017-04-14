@@ -1,9 +1,7 @@
 -------TODO----------
 
 -------Prio 1 (Easy) -------
-- Use some “you won” animation instead of displaying an alert after the battle is over. ()
-- Add text or a message saying that you are waiting for an opponent if no one has chosen the other player. ()
-- Add button to abort battle ()
+
 
 
 -------Prio 2 (Quite easy) -------
@@ -13,7 +11,6 @@
 - It would be really cool if you could make some animations when they are attacked (sprites). ()
 - Have the HP both as a number and as a bar. ()
 - I would also like a lot of more information on the other player. maybe a console view or something so that I can see that the other player has connected, or that the other player is waiting for me to pick my pokemon. ()
-- Fix ng-click on home screen.
 
 
 -------Prio 3 (Difficult) -------
@@ -38,3 +35,7 @@ What's the point of the game? Whats happens when you win a match?  ()
 - The placement of logos can be put in a grid better, the non uniform fashion(that is just aesthetics and can be fixed at a later stage as well. (X)
 - Add some avatar picture to the pokemons in the “My pokémons” list to the left. (X)
 - I could not find which player I was choosing for(after choosing player 1 on first screen) (X)
+- Fix ng-click on home screen(X).
+- Use some “you won” animation instead of displaying an alert after the battle is over. (X)
+- Add text or a message saying that you are waiting for an opponent if no one has chosen the other player. (X)
+- Add button to abort battle (X)
