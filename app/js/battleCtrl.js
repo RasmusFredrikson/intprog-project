@@ -99,6 +99,7 @@ pokemonPlannerApp.controller('BattleCtrl', function ($scope,Pokemon,$firebaseObj
         $scope.turn.player = false;
         refOpponentPokemon.remove();
         refMyPokemon.remove();
+        refStatus.remove();
         $scope.turn.$save();
     }
 
