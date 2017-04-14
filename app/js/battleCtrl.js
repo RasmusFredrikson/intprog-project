@@ -25,17 +25,13 @@ pokemonPlannerApp.controller('BattleCtrl', function ($scope,Pokemon,$firebaseObj
     $scope.status = $firebaseObject(refStatus);
 
     $scope.playerAttacks = function(move) {
-        console.log(move.length);
         $scope.opponentPokemon.pokemon.hp -= move.length;
         $scope.status.desc = $scope.myPokemon.pokemon.name + " caused " + move.length + " damage on " + $scope.opponentPokemon.pokemon.name + "!";
         $scope.turn.player = $scope.otherPlayer;
-        console.log($scope.status.desc)
         if ($scope.opponentPokemon.pokemon.hp <= 0) {
             $scope.opponentPokemon.pokemon.hp = 0;
-            $scope.opponentPokemon.$save().then(function() {
-                alert("Opponent lost!");
-            });
-            $scope.turn.player = false;
+            $scope.victor.player = Pokemon.getPlayer();
+            $scope.victor.$save();
         }
         $scope.opponentPokemon.$save();
         $scope.status.$save();
@@ -43,7 +39,6 @@ pokemonPlannerApp.controller('BattleCtrl', function ($scope,Pokemon,$firebaseObj
     }
 
     $scope.checkTurn = function() {
-        console.log($scope.turn == Pokemon.getPlayer())
         return $scope.turn.player != Pokemon.getPlayer();
     }
 
@@ -53,7 +48,6 @@ pokemonPlannerApp.controller('BattleCtrl', function ($scope,Pokemon,$firebaseObj
         } else {
             return "Your";
         }
-        console.log($scope.turn);
     }
 
     $scope.switchPokemon = function() {
@@ -61,9 +55,9 @@ pokemonPlannerApp.controller('BattleCtrl', function ($scope,Pokemon,$firebaseObj
         $scope.turn.$save();
     }
 
-    $scope.reset = function() {
-        console.log("Running reset!");
-        alert("You abandoned the game :(");
+    $scope.reset = function(abandonded) {
+        if (abandonded == true)
+            alert("You abandoned the game :(");
         $scope.turn.player = false;
         refOpponentPokemon.remove();
         refMyPokemon.remove();
@@ -71,20 +65,18 @@ pokemonPlannerApp.controller('BattleCtrl', function ($scope,Pokemon,$firebaseObj
         $scope.turn.$save();
     }
 
-    $scope.opponentAttacks = function(move) {
-        console.log(move);
-        $scope.myPokemon.pokemon.hp -= move.length;
-        $scope.status.desc = $scope.opponentPokemon.pokemon.name + " caused " + move.length + " damage on " + $scope.myPokemon.pokemon.name + "!";
-        if ($scope.myPokemon.pokemon.hp <= 0) {
-            $scope.myPokemon.pokemon.hp = 0;
-            $scope.myPokemon.$save().then(function() {
-                alert("Player lost!");
-            });
-            $scope.turn.player = false;
-            $scope.turn.$save();
-        }
-        $scope.status.$save();
-        $scope.myPokemon.$save();
+    $scope.checkLoser = function(winner) {
+        if ($scope.otherPlayer != winner)
+            return $scope.otherPlayer;
+        else 
+            return Pokemon.getPlayer();
+    }
+
+    $scope.checkFaintedPokemon = function(winner) {
+        if ($scope.otherPlayer != winner)
+            return $scope.opponentPokemon.pokemon.name;
+        else 
+            return $scope.myPokemon.pokemon.name;
     }
 
     $scope.checkStatus = function() {

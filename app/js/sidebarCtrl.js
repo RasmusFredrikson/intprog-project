@@ -20,6 +20,10 @@ pokemonPlannerApp.controller('SidebarCtrl', function ($scope,Pokemon, $firebaseA
   		return Pokemon.sort($scope.myPokemon);
   	}
 
+  	$scope.resetVictor = function() {
+	    firebase.database().ref().child("settings/victor").remove();
+  	}
+
   	$scope.player = Pokemon.getPlayer();
 
 });

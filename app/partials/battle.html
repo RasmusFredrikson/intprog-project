@@ -2,18 +2,19 @@
 	<div class="row text-center">
 		<div class="panel panel-danger ">
 			<div class="panel-heading">
-				<h3 ng-if="turn.player">{{printTurn()}} turn to make a move...</h3>
-				<h3 class="padding20 paddingtop0" ng-if="!turn.player">Your opponent lost!</h3>
-				<a ng-if="!turn.player" class="btn-success btn-lg margin20" href="#!/search"> Accept victory </a>
+				<h3 ng-if="victor.player == null">{{printTurn()}} turn to make a move...</h3>
+				<h3 class="padding20 paddingtop0" ng-if="victor.player == 1 || victor.player == 2">Player {{victor.player}} won!</h3>
+				<a ng-if="victor.player == 1 || victor.player == 2" ng-click="reset(false)" class="btn-danger btn-lg margin20" href="#!/search"> Return to Pokédex </a>
 			</div>
 			<div class="panel-body">
-				<h4>{{status.desc}}</h4>
+				<h4 ng-if="victor.player == null">{{status.desc}}</h4>
+				<h4 ng-if="victor.player == 1 || victor.player == 2">Player {{checkLoser(victor.player)}}'s  {{checkFaintedPokemon(victor.player)}} fainted!</h4>				
 			</div>
 		</div>
 	</div>
 
 
-	<div class="row content text-center" ng-if="turn.player">
+	<div class="row content text-center" ng-if="victor.player == null">
 		<!-- Pokémon -->
 		<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
 			<h1 class="blackColor">{{myPokemon.pokemon.name}}</h1>
@@ -42,7 +43,7 @@
 				<a href="#!/printPokemonlist" class="btn btn-primary btn-lg" ng-disabled="checkTurn()" ng-click="switchPokemon()">Switch Pokémon</a>
 			</div>
 			<div class="row">
-				<a href="#!/search" class="btn btn-danger btn-lg margintop20" ng-click="reset()">Abort Battle</a>
+				<a href="#!/search" class="btn btn-danger btn-lg margintop20" ng-click="reset(true)">Abort Battle</a>
 			</div>
 			
 		</div>
