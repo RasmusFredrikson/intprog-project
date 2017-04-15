@@ -28,53 +28,6 @@ pokemonPlannerApp.factory('Pokemon',function ($resource, $timeout) {
         return player;
     }
 
-    this.addPokemon = function(){
-        var ref = database.ref("players")
-        ref.child(1).set({
-            id: "p1"
-            /*name: pokemon.name,
-            height: pokemon.height,
-            weight: pokemon.weight
-            */
-        });
-        ref.child(2).set({
-            id: "p2"
-            /*name: pokemon.name,
-            height: pokemon.height,
-            weight: pokemon.weight
-            */
-        });
-    }
-
-    this.addUserPokemon = function(player, pokemon){
-        var ref = database.ref("players/" + player)
-        ref.child(pokemon.national_id).set({
-            id: pokemon.national_id,
-            name: pokemon.name,
-            height: pokemon.height,
-            weight: pokemon.weight
-        })
-    }
-
-    // Get all pokémon in the database
-    this.getAllUserPokemon = function(cb) {
-        var list = [];
-        var ref = database.ref("pokemon");
-        ref.once('value').then(function(snapshot) {
-            //console.log(snapshot.val());
-            list.push(snapshot.val());
-        });
-        return list;
-    }
-
-    // Get a pokémon with a specified id
-    this.getPokemon = function(id) {
-        var ref = database.ref("pokemon/" + id);
-        ref.once('value').then(function(snapshot) {
-            console.log(snapshot.val());
-            return snapshot.val();
-        });
-    }
 
     this.search = function() {
         var ref = database.ref("pokemon");
@@ -105,6 +58,14 @@ pokemonPlannerApp.factory('Pokemon',function ($resource, $timeout) {
         return list.sort(Comparator)
     }
 
+    /**
+    * Returns a random integer between min (inclusive) and max (inclusive)
+    * Using Math.round() will give you a non-uniform distribution!
+    */
+    this.getRandomInt = function(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
     function Comparator(a, b) {
         if (a.pokemon==null || b.pokemon==null)
             return 0;
@@ -113,25 +74,10 @@ pokemonPlannerApp.factory('Pokemon',function ($resource, $timeout) {
         return 0;
     }
 
-
-
-
-
-
-// TODO in Lab 5: Add your model code from previous labs
-// feel free to remove above example code
-// you will need to modify the model (getDish and getAllDishes) 
-// a bit to take the advantage of Angular resource service
-// check lab 5 instructions for details
-
-
-
-
-
-// Angular service needs to return an object that has all the
-// methods created in it. You can consider that this is instead
-// of calling var model = new DinnerModel() we did in the previous labs
-// This is because Angular takes care of creating it when needed.
-return this;
+    // Angular service needs to return an object that has all the
+    // methods created in it. You can consider that this is instead
+    // of calling var model = new DinnerModel() we did in the previous labs
+    // This is because Angular takes care of creating it when needed.
+    return this;
 
 });

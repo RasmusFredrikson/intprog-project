@@ -13,7 +13,6 @@
 		</div>
 	</div>
 
-
 	<div class="row content text-center" ng-if="victor.player == null">
 		<!-- Pokémon -->
 		<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
@@ -28,14 +27,14 @@
 			<div class="row">
 				<div ng-repeat="move in myPokemon.pokemon.moves.slice(0,2)">
 					<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
-						<button href="" class="btn-group-justified btn btn-primary btn-lg" ng-click="playerAttacks(move.name)" ng-disabled="checkTurn()">{{move.name}}</button>
+						<button href="" class="btn-group-justified btn btn-primary btn-lg" ng-click="playerAttacks(move.name)" ng-disabled="checkTurn()">{{move.name}}: {{getAttackDmg(move.name)}}</button>
 					</div>
 				</div>
 			</div>
 			<div class="row center margintop20">
 				<div ng-repeat="move in myPokemon.pokemon.moves.slice(2,4)">
 					<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
-						<button href="" class="btn-group-justified btn btn-primary btn-lg" ng-click="playerAttacks(move.name)" ng-disabled="checkTurn()">{{move.name}}</button>
+						<button href="" class="btn-group-justified btn btn-primary btn-lg" ng-click="playerAttacks(move.name)" ng-disabled="checkTurn()">{{move.name}}: {{getAttackDmg(move.name)}}</button>
 					</div>
 				</div>
 			</div>
@@ -43,16 +42,12 @@
 			<div class="row">
 				<a href="#!/search" class="btn btn-danger btn-lg margintop20" ng-click="reset(true)">Abort Battle</a>
 			</div>
-			
 		</div>
 		
 		<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
 			<h1 class="blackColor">{{opponentPokemon.pokemon.name}}</h1>
 			<h3>{{checkStatus()}}</h3>
 			<img class="img30" ng-src="../images/{{opponentPokemon.pokemon.national_id}}.png" alt={{opponentPokemon.pokemon.name}}>
-			<!-- <div ng-repeat="move in opponentPokemon.pokemon.moves.slice(0,4)">
-				<a href="" class="btn-group-justified btn btn-primary btn-lg" ng-click="opponentAttacks(move.name)">{{move.name}}</a>
-			</div> -->
 		</div>
 	</div>
 </div>

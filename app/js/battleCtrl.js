@@ -25,8 +25,9 @@ pokemonPlannerApp.controller('BattleCtrl', function ($scope,Pokemon,$firebaseObj
     $scope.status = $firebaseObject(refStatus);
 
     $scope.playerAttacks = function(move) {
-        $scope.opponentPokemon.pokemon.hp -= move.length;
-        $scope.status.desc = $scope.myPokemon.pokemon.name + " caused " + move.length + " damage on " + $scope.opponentPokemon.pokemon.name + "!";
+        var dmg = Pokemon.getRandomInt(6-move.length/2,6+move.length/2);
+        $scope.opponentPokemon.pokemon.hp -= dmg;
+        $scope.status.desc = $scope.myPokemon.pokemon.name + " caused " + dmg + " damage on " + $scope.opponentPokemon.pokemon.name + "!";
         $scope.turn.player = $scope.otherPlayer;
         if ($scope.opponentPokemon.pokemon.hp <= 0) {
             $scope.opponentPokemon.pokemon.hp = 0;
@@ -63,6 +64,10 @@ pokemonPlannerApp.controller('BattleCtrl', function ($scope,Pokemon,$firebaseObj
         $scope.turn.$save();
     }
 
+    $scope.getAttackDmg = function(dmg) {
+        return ((6-dmg.length/2) + " - " + (6+dmg.length/2) + " dmg");
+    }
+
     $scope.checkLoser = function(winner) {
         if (winner != 1 && winner != 2)
             return null;
@@ -82,7 +87,7 @@ pokemonPlannerApp.controller('BattleCtrl', function ($scope,Pokemon,$firebaseObj
     }
 
     $scope.checkStatus = function() {
-        if ($scope.opponentPokemon.pokemon.hp != null)
+        if ($scope.opponentPokemon.pokemon != null)
             return ("HP: " + $scope.opponentPokemon.pokemon.hp);
         else
             return ("Waiting for player " + $scope.otherPlayer + "...");

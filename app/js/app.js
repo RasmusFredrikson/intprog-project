@@ -45,7 +45,7 @@ pokemonPlannerApp.config(['$routeProvider',
             templateUrl: 'partials/search.html',
             controller: 'SearchCtrl'
         }).
-        when('/info/:pokeId', { //CHANGE THIS TO INFO!!!!
+        when('/info/:pokeId', {
             templateUrl: 'partials/info.html',
             controller: 'InfoCtrl'
         }).
@@ -57,7 +57,6 @@ pokemonPlannerApp.config(['$routeProvider',
             templateUrl: 'partials/battle.html',
             controller: 'BattleCtrl'
         }).
-        // TODO in Lab 5: add more conditions for the last two screens (overview and preparation)
         otherwise({
             redirectTo: '/home'
         });
