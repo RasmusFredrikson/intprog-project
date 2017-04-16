@@ -55,6 +55,8 @@ pokemonPlannerApp.factory('Pokemon',function ($resource, $timeout) {
     });
 
     this.sort = function(list) {
+        if (list==null)
+            return null;
         return list.sort(Comparator)
     }
 
