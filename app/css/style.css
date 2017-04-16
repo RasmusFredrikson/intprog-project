@@ -137,6 +137,10 @@
 	margin-top: 20px;
 }
 
+.margintop15 {
+	margin-top: 10px;
+}
+
 .margintop10 {
 	margin-top: 10px;
 }
@@ -147,6 +151,12 @@
 
 .noBorderRadius {
 	border-radius: 0;
+}
+
+.jumbotron.redColor {
+	margin-top: 15px;
+	padding: 15px;
+	color: #f1f1f1;
 }
 
 .columns {
