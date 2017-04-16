@@ -3,7 +3,8 @@
 <div class="container-fluid">    
 	<div class="row content">
 		<div class="col-sm-9 col-md-9 col-lg-10 col-xl-10">
-			<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 infoBorder padding20 paddingtop0 margintop15">				
+			<h1 ng-if="pokemon == null">Loading...</h1>
+			<div ng-if="pokemon != null" class="col-sm-12 col-md-12 col-lg-12 col-xl-12 infoBorder padding20 paddingtop0 margintop15">				
 				<div class="row padding20">
 					<!-- Image -->
 					<h3 >#{{pokemon.national_id}} {{pokemon.name}}</h3>
