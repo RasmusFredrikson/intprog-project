@@ -2,28 +2,23 @@
 // display or modify the Movie menu
 pokemonPlannerApp.controller('SidebarCtrl', function ($scope,Pokemon, $firebaseArray) {
 
-	$scope.getAllPokemon = function() {
-		Pokemon.getAllPokemon();
-	}
+  var refMyPokemon = firebase.database().ref().child("players/" + Pokemon.getPlayer().toString());
 
-	$scope.getPokemon = function(id) {
-		Pokemon.getPokemon(id);
-	}
+  $firebaseArray(refMyPokemon).$loaded().then(function() {
+    $scope.myPokemon = $firebaseArray(refMyPokemon);
+  });
 
-    var refMyPokemon = firebase.database().ref().child("players/" + Pokemon.getPlayer().toString());
+  $scope.sortMyPokemon = function() {
+    return Pokemon.sort($scope.myPokemon);
+  }
 
-	$firebaseArray(refMyPokemon).$loaded().then(function() {
-    	$scope.myPokemon = $firebaseArray(refMyPokemon);
-    });
+  $scope.resetVictor = function() {
+    firebase.database().ref().child("settings/victor").remove();
+  }
 
-  	$scope.sortMyPokemon = function() {
-  		return Pokemon.sort($scope.myPokemon);
-  	}
+  $scope.release = function(poke) {
+    $scope.myPokemon.$remove(poke);
+  }
 
-  	$scope.resetVictor = function() {
-	    firebase.database().ref().child("settings/victor").remove();
-  	}
-
-  	$scope.player = Pokemon.getPlayer();
-
+  $scope.player = Pokemon.getPlayer();
 });

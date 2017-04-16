@@ -9,7 +9,7 @@
 
 			<!-- Search Results -->
 			<div class="row text-center">
-				<h2 ng-if="sortPokedex() == null">Searching...</h2>
+				<h1>{{loading}}</h1>
 				<div ng-repeat="poke in sortPokedex()">
 					<div class="col-sm-4 col-md-2 col-lg-2 col-xl-1">
 						<a href="#!/info/{{poke.pokemon.national_id}}">
@@ -17,6 +17,7 @@
 							{{poke.pokemon.name}}
 						</a>
 					</div>
+					{{loadingDone()}}
 				</div>
 			</div>
 		</div>
