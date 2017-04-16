@@ -15,7 +15,7 @@
   "scripts": {
     "postinstall": "bower install",
     "prestart": "npm install",
-    "start": "node js/app.js"
+    "start": "node index.html"
   },
   "dependencies": {
     "firebase": "^3.7.3",
