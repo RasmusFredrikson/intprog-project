@@ -28,6 +28,13 @@ pokemonPlannerApp.controller('HomeCtrl', function ($scope,Pokemon, $firebaseObje
 		}
 	}
 
+	$scope.resetPlayers = function() {
+		player1.occupied = false;
+		player2.occupied = false;
+		player1.$save();
+		player2.$save();
+	}
+
 
 	// add dish to menu and get total menu price
 	$scope.setPlayer = function(player) {
