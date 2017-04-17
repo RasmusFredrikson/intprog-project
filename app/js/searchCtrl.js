@@ -9,8 +9,7 @@ pokemonPlannerApp.controller('SearchCtrl', function ($scope,Pokemon, $firebaseAr
 
   $scope.player = Pokemon.getPlayer();
 
-  $scope.search = function() {
-    $scope.status = "Running search...";
+  $scope.addPokedex = function() {
     for (var i = 1; i <= 151 ; i++) {
       Pokemon.PokemonSearch.get({id:i},function(poke){
         $scope.pokedex.$add({pokemon:poke});

@@ -3,8 +3,10 @@
 		<div class="panel panel-danger ">
 			<div class="panel-heading">
 				<h3 ng-if="victor.player == null">{{printTurn()}} turn to make a move...</h3>
-				<h3 class="padding20 paddingtop0" ng-if="victor.player == 1 || victor.player == 2">Player {{victor.player}} won!</h3>
-				<a ng-if="victor.player == 1 || victor.player == 2" ng-click="reset(false)" class="btn-danger btn-lg margin20" href="#!/search"> Return to Pokédex </a>
+				<div ng-if="victor.player == 1 || victor.player == 2">
+					<h3 class="padding20 paddingtop0">Player {{victor.player}} won!</h3>
+					<a  ng-click="reset(false)" class="btn-danger btn-lg margin20" href="#!/search"> Return to Pokédex </a>
+				</div>
 			</div>
 			<div class="panel-body">
 				<h4 ng-if="victor.player == null">{{status.desc}}</h4>
