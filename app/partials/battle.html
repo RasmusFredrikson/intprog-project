@@ -19,7 +19,9 @@
 		<!-- Player's Pokémon -->
 		<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
 			<h1 class="blackColor">{{myPokemon.pokemon.name}}</h1>
-			<h3>HP: {{myPokemon.pokemon.hp}}</h3>
+			<div class="row">
+				<progress id="health" class="text-center" value={{myPokemon.pokemon.hp}} max="100"></progress>
+			</div>
 			<img class="img30" ng-src="../images/{{myPokemon.pokemon.national_id}}.png" alt={{myPokemon.pokemon.name}}>
 			<h3 class="margintop0">Choose move:</h3>
 			<div class="row">
@@ -45,7 +47,9 @@
 		<!-- Opponent's Pokémon -->
 		<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
 			<h1 class="blackColor">{{opponentPokemon.pokemon.name}}</h1>
-			<h3>{{checkStatus()}}</h3>
+			<div class="row">
+				<progress id="health" class="text-center" value={{checkStatus()}} max="100"></progress>
+			</div>
 			<img class="img30" ng-src="../images/{{opponentPokemon.pokemon.national_id}}.png" alt={{opponentPokemon.pokemon.name}}>
 		</div>
 	</div>
