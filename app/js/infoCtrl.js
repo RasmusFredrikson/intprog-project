@@ -33,6 +33,11 @@ pokemonPlannerApp.controller('InfoCtrl', function ($scope,$routeParams,Pokemon, 
 				$scope.status = "There was an error";
 			});
   
+  $scope.playConfirm = function() {
+    var audio = new Audio('../audio/sound-confirm.m4a');
+    audio.play();
+  };
+
   $scope.addUserPokemon = function() {
     $scope.myPokemon.$add({pokemon:$scope.pokemon});
   	//Pokemon.addUserPokemon(pokemon);
