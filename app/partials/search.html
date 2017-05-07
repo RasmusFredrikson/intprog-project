@@ -11,11 +11,24 @@
 			<div class="row text-center">
 				<h1>{{loading}}</h1>
 				<div ng-repeat="poke in sortPokedex()">
-					<div class="col-sm-4 col-md-2 col-lg-2 col-xl-1 alignrows">
-						<a href="#!/info/{{poke.pokemon.national_id}}">
+					<div class="col-sm-4 col-md-2 col-lg-2 col-xl-1 alignrows" >
+						<a class="thumbnail" href="#!/info/{{poke.pokemon.national_id}}">
 							<img ng-src="../images/{{poke.pokemon.national_id}}.png" class="img100">
 							{{poke.pokemon.name}}
+							<div ng-repeat="type in poke.pokemon.types">
+								<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
+									<img src="../images/types/{{type.name}}.png" alt="Loading..." class="img100">
+								</div>		
+							</div>
+							<div class="row">
+								<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+									HP: {{poke.pokemon.hp}} <br>
+									ATTACK: {{poke.pokemon.attack}}<br>
+									DEFENSE: {{poke.pokemon.defense}}
+								</div>
+							</div>
 						</a>
+						
 					</div>
 					{{loadingDone()}}
 				</div>
