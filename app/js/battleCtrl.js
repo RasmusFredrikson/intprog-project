@@ -24,26 +24,6 @@ pokemonPlannerApp.controller('BattleCtrl', function ($scope,Pokemon,$firebaseObj
     var refStatus = firebase.database().ref().child("settings/status");
     $scope.status = $firebaseObject(refStatus);
 
-    $scope.playAttack = function() {
-        var audio = new Audio('../audio/sound-reset.m4a');
-        audio.play();
-    };
-
-    $scope.playGameOver = function() {
-        var audio = new Audio('../audio/sound-gameover.m4a');
-        audio.play();
-    };
-
-    $scope.playConfirm = function() {
-        var audio = new Audio('../audio/sound-confirm.m4a');
-        audio.play();
-    };
-
-    $scope.playTheme = function() {
-        var audio = new Audio('../audio/sound-confirm.m4a');
-        audio.play();
-    };
-
     $scope.playerAttacks = function(move) {
         var dmg = Pokemon.getRandomInt(6-move.length/2,6+move.length/2);
         $scope.opponentPokemon.pokemon.hp -= dmg;
@@ -90,7 +70,7 @@ pokemonPlannerApp.controller('BattleCtrl', function ($scope,Pokemon,$firebaseObj
 
     $scope.checkLoser = function(winner) {
         if (winner != 1 && winner != 2)
-            return null;
+            return false;
         if ($scope.otherPlayer != winner)
             return $scope.otherPlayer;
         else
@@ -98,9 +78,9 @@ pokemonPlannerApp.controller('BattleCtrl', function ($scope,Pokemon,$firebaseObj
     }
 
     $scope.checkFaintedPokemon = function(winner) {
-        if (winner != 1 && winner != 2)
-            return null;
-        if ($scope.otherPlayer != winner)
+        if ($scope.otherPlayer == null || $scope.opponentPokemon == null || $scope.opponentPokemon.pokemon == null)
+            return false;
+        if ($scope.otherPlayer != winner && $scope.opponentPokemon.pokemon != null)
             return $scope.opponentPokemon.pokemon.name;
         else
             return $scope.myPokemon.pokemon.name;

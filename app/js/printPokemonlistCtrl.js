@@ -25,16 +25,9 @@ pokemonPlannerApp.controller('PrintPokemonlistCtrl', function ($scope,Pokemon, $
 
   $scope.setChosenPokemon = function(poke) {
     $scope.chosenPokemon.pokemon = poke;
+    $scope.chosenPokemon.pokemon.maxHealth = poke.hp;
     $scope.turn.player = $scope.otherPlayer;
     $scope.chosenPokemon.$save();
     $scope.turn.$save();
-  }
-
-  $scope.reset = function() {
-    console.log("Running reset!");
-    alert("You abandoned the game :(");
-    $scope.turn.player = true;
-    refOpponentPokemon.remove();
-    refMyPokemon.remove();
   }
 });

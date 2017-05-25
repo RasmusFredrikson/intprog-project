@@ -7,7 +7,7 @@ pokemonPlannerApp.factory('Pokemon',function ($resource, $timeout) {
 
     // Set the configuration for your app
     // TODO: Replace with your project's config object
-    var player = 0;
+    var player = localStorage.player;
 
     var config = {
         apiKey: "AIzaSyCopvBmpePv8mlx529uPfA2YZ9DJWve5qA",
@@ -22,6 +22,7 @@ pokemonPlannerApp.factory('Pokemon',function ($resource, $timeout) {
 
     this.setPlayer = function(newPlayer){
         player = newPlayer;
+        localStorage.player = player;
     }
 
     this.getPlayer = function(){
