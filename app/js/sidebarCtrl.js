@@ -8,6 +8,7 @@ pokemonPlannerApp.controller('SidebarCtrl', function ($scope,Pokemon, $firebaseA
     $scope.myPokemon = $firebaseArray(refMyPokemon);
   });
 
+
   $scope.sortMyPokemon = function() {
     return Pokemon.sort($scope.myPokemon);
   }

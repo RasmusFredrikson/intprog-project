@@ -19,6 +19,17 @@ pokemonPlannerApp.controller('HomeCtrl', function ($scope,Pokemon, $firebaseObje
 		player2.$save();
 	}
 
+
+    $scope.playReset = function() {
+        var audio = new Audio('../audio/sound-reset.m4a');
+        audio.play();
+    };
+
+     $scope.playTheme = function() {
+        var audio = new Audio('../audio/theme.mp3');
+        audio.play();
+    };
+
 	$scope.checkPlayer = function(player){
 		if(player=="1"){
 			return player1.occupied;
@@ -36,7 +47,6 @@ pokemonPlannerApp.controller('HomeCtrl', function ($scope,Pokemon, $firebaseObje
 	}
 
 
-	// add dish to menu and get total menu price
 	$scope.setPlayer = function(player) {
 		console.log("Running setPlayer!");
 		Pokemon.setPlayer(player);
