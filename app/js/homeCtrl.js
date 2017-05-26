@@ -35,7 +35,6 @@ pokemonPlannerApp.controller('HomeCtrl', function ($scope,Pokemon, $firebaseObje
 		player2.$save();
 	}
 
-
 	$scope.setPlayer = function(player) {
 		console.log("Running setPlayer!");
 		Pokemon.setPlayer(player);

@@ -8,9 +8,18 @@
 			</div>
 
 			<!-- Search Results -->
-			<div class="row text-center">
-				<h1>{{loading}}</h1>
-				<div ng-repeat="poke in sortPokedex()">
+			<div class="row">
+				<label class="marginright4 margin20 padding0" >Sort</label>
+				<select ng-model="type" ng-init="type = 'id'" ng-change="sortPokedex(type)">
+					<option value="id">Id</option>
+					<option value="name">Name</option>
+					<option value="health">Health</option>
+					<option value="defense">Defense</option>
+					<option value="attack">Attack</option>
+				</select>
+				<h1 class="text-center">{{loading}}</h1>
+
+				<div class="text-center" ng-repeat="poke in sortedPokedex">
 					<div class="col-sm-4 col-md-2 col-lg-2 col-xl-1 alignrows" >
 						<a class="thumbnail" href="#!/info/{{poke.pokemon.national_id}}">
 							<img ng-src="../images/{{poke.pokemon.national_id}}.png" class="img100">
@@ -28,7 +37,7 @@
 								</div>
 							</div>
 						</a>
-						
+
 					</div>
 					{{loadingDone()}}
 				</div>

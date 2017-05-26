@@ -6,6 +6,8 @@ pokemonPlannerApp.controller('SearchCtrl', function ($scope,Pokemon, $firebaseAr
   // create a synchronized array
   // click on `index.html` above to see it used in the DOM!
   $scope.pokedex = $firebaseArray(ref);
+  $scope.sortedPokedex = Pokemon.sort($scope.pokedex);;
+
 
   $scope.player = Pokemon.getPlayer();
 
@@ -27,7 +29,7 @@ pokemonPlannerApp.controller('SearchCtrl', function ($scope,Pokemon, $firebaseAr
     $scope.loading = ""
   }
 
-  $scope.sortPokedex = function() {
-    return Pokemon.sort($scope.pokedex);;
+  $scope.sortPokedex = function(type) {
+    $scope.sortedPokedex = Pokemon.sort($scope.pokedex, type);;
   }
 });

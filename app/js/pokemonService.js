@@ -55,10 +55,21 @@ pokemonPlannerApp.factory('Pokemon',function ($resource, $timeout) {
         }
     });
 
-    this.sort = function(list) {
+    this.sort = function(list, type) {
         if (list==null)
             return null;
-        return list.sort(Comparator)
+        switch(type) {
+            case 'name':
+            return list.sort(ComparatorName)
+            case 'health':
+            return list.sort(ComparatorHealth)
+            case 'defense':
+            return list.sort(ComparatorDefense)
+            case 'attack':
+            return list.sort(ComparatorAttack)
+            default:      
+            return list.sort(ComparatorId)
+        }
     }
 
     /**
@@ -69,11 +80,43 @@ pokemonPlannerApp.factory('Pokemon',function ($resource, $timeout) {
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 
-    function Comparator(a, b) {
+    function ComparatorId(a, b) {
         if (a.pokemon==null || b.pokemon==null)
             return 0;
         if (a.pokemon.national_id < b.pokemon.national_id) return -1;
         if (a.pokemon.national_id > b.pokemon.national_id) return 1;
+        return 0;
+    }
+
+        function ComparatorName(a, b) {
+        if (a.pokemon==null || b.pokemon==null)
+            return 0;
+        if (a.pokemon.name < b.pokemon.name) return -1;
+        if (a.pokemon.name > b.pokemon.name) return 1;
+        return 0;
+    }
+
+        function ComparatorHealth(a, b) {
+        if (a.pokemon==null || b.pokemon==null)
+            return 0;
+        if (a.pokemon.hp > b.pokemon.hp) return -1;
+        if (a.pokemon.hp < b.pokemon.hp) return 1;
+        return 0;
+    }
+
+        function ComparatorDefense(a, b) {
+        if (a.pokemon==null || b.pokemon==null)
+            return 0;
+        if (a.pokemon.defense > b.pokemon.defense) return -1;
+        if (a.pokemon.defense < b.pokemon.defense) return 1;
+        return 0;
+    }
+
+        function ComparatorAttack(a, b) {
+        if (a.pokemon==null || b.pokemon==null)
+            return 0;
+        if (a.pokemon.attack > b.pokemon.attack) return -1;
+        if (a.pokemon.attack < b.pokemon.attack) return 1;
         return 0;
     }
 
